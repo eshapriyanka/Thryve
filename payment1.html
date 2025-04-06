@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Payment Profile Setup</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f1f3f4;
+      margin: 0;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: auto;
+      background: white;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+      margin-bottom: 20px;
+    }
+
+    label {
+      font-weight: 500;
+      margin-bottom: 5px;
+      display: block;
+    }
+
+    label i {
+      margin-right: 8px;
+      color: #5f6368;
+    }
+
+    select, input[type="text"] {
+      width: 100%;
+      padding: 12px;
+      font-size: 14px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      margin-bottom: 20px;
+    }
+
+    .note {
+      color: #5f6368;
+      font-size: 13px;
+      margin-top: -15px;
+      margin-bottom: 15px;
+    }
+
+    .input-group {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .input-group input {
+      flex: 1;
+    }
+
+    .input-group button {
+      background: none;
+      border: none;
+      color: #1a73e8;
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    .card {
+      border: 1px solid #dadce0;
+      padding: 20px;
+      border-radius: 8px;
+      margin-top: 20px;
+    }
+
+    .card-header {
+      font-size: 14px;
+      font-weight: bold;
+      margin-bottom: 8px;
+    }
+
+    .card-body {
+      color: #1a73e8;
+      font-weight: 500;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+    }
+
+    .profile-form input, .profile-form select {
+      margin-bottom: 10px;
+    }
+
+    .radio-group {
+      display: flex;
+      gap: 20px;
+      margin-top: 10px;
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 30px;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 14px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .back-btn {
+      background-color: transparent;
+      color: #1a73e8;
+    }
+
+    .submit-btn {
+      background-color: #1a73e8;
+      color: white;
+    }
+
+    .hidden {
+      display: none;
+    }
+footer {
+  background-color: #1e3a8a;
+  color: white;
+  padding: 1.5rem 0;
+  text-align: center;
+}
+
+footer a {
+  color: #b3c7f9;
+  margin: 0 0.5rem;
+  transition: color 0.3s ease;
+}
+
+footer a:hover {
+  color: white;
+}
+
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h2>Confirm your account settings</h2>
+
+  <label for="country"><i class="fa-solid fa-flag"></i>Billing country</label>
+  <select id="country">
+    <option>India</option>
+    <option>United States</option>
+    <option>United Kingdom</option>
+    <option>Germany</option>
+    <option>Australia</option>
+  </select>
+
+  <label for="timezone"><i class="fa-solid fa-clock"></i>Time zone</label>
+  <select id="timezone">
+    <option>(GMT+05:30) India Time</option>
+    <option>(GMT+00:00) UTC</option>
+    <option>(GMT-05:00) Eastern Time (US & Canada)</option>
+    <option>(GMT+01:00) Central European Time</option>
+    <option>(GMT+10:00) Australian Eastern Time</option>
+  </select>
+  <div class="note">Time zone applies to your entire account and cannot be changed later.</div>
+
+  <label for="offer"><i class="fa-solid fa-tag"></i>Offer code</label>
+  <div class="input-group">
+    <input type="text" id="offer" placeholder="Offer code">
+    <button onclick="alert('Code applied')">Apply</button>
+  </div>
+
+  <div class="card" onclick="document.getElementById('profileForm').classList.toggle('hidden')">
+    <div class="card-header">Payments profile</div>
+    <div class="card-body">
+      Create new payments profile <i class="fa-solid fa-plus"></i>
+    </div>
+  </div>
+
+  <form id="profileForm" class="profile-form hidden">
+    <label>Profile type</label>
+    <select>
+      <option>Organisation</option>
+      <option>Individual</option>
+    </select>
+
+    <input type="text" placeholder="Organisation name">
+    <input type="text" placeholder="Legal name">
+    <input type="text" placeholder="Street address">
+    <input type="text" placeholder="Apt, suite, etc. (optional)">
+    <input type="text" placeholder="Town/City">
+    <input type="text" placeholder="PIN code">
+  </form>
+
+  <div class="card">
+    <label>Want personalised guidance from a Google Ads account strategist by phone or messaging app?</label>
+    <div class="radio-group">
+      <label><input type="radio" name="guidance"> Yes</label>
+      <label><input type="radio" name="guidance"> No</label>
+    </div>
+  </div>
+
+  <div class="buttons">
+    <button class="back-btn">Back</button>
+    <button class="submit-btn" onclick="submitSettings()">Submit</button>
+  </div>
+</div>
+
+<script>
+  function submitSettings() {
+    alert('Settings submitted!');
+  }
+</script>
+
+</body>
+<footer class="bg-[#1e3a8a] text-white py-6 mt-10">
+  <div class="container mx-auto text-center">
+    <p class="text-sm">&copy; 2025 Thryve. All rights reserved.</p>
+    <div class="mt-2">
+      <a href="#" class="text-gray-300 hover:text-white mx-2">Privacy Policy</a>
+      <a href="#" class="text-gray-300 hover:text-white mx-2">Terms of Service</a>
+      <a href="#" class="text-gray-300 hover:text-white mx-2">Contact Us</a>
+    </div>
+  </div>
+</footer>
+
+</html>

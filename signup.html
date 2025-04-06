@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thryve - User Signup</title>
+    <link rel="icon" href="logo1.jpg" type="image/png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        * { 
+            margin: 0; 
+            padding: 0; 
+            box-sizing: border-box; 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+        }
+        body { 
+            background: #ffffff; 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            min-height: 100vh; 
+        }
+        .container { 
+            width: 400px; 
+            padding: 2rem; 
+            border-radius: 15px; 
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); 
+            background: #fff; 
+        }
+        h2 { 
+            text-align: center; 
+            margin-bottom: 1rem; 
+        }
+        .input-field { 
+            position: relative; 
+            margin: 1rem 0; 
+        }
+        .input-field i { 
+            position: absolute; 
+            top: 50%; 
+            left: 10px; 
+            transform: translateY(-50%); 
+            color: #6b7280; 
+        }
+        .input-field input { 
+            width: 100%; 
+            padding: 0.8rem 0.8rem 0.8rem 2.5rem; 
+            border-radius: 8px; 
+            border: 1px solid #d1d5db; 
+            font-size: 1rem; 
+            outline: none; 
+        }
+
+        /* Apply Dark Blue color for border and Light Blue for focus */
+        .input-field input:focus { 
+            border-color: #001f6b; 
+            box-shadow: 0 0 5px rgba(0, 31, 107, 0.5); 
+        }
+
+        /* Apply Dark Blue color to button */
+        .btn { 
+            margin-top: 1rem; 
+            padding: 0.8rem; 
+            background-color: #001f6b; /* Dark Blue */
+            border: none; 
+            color: #fff; 
+            font-size: 1rem; 
+            border-radius: 8px; 
+            cursor: pointer; 
+            width: 100%; 
+        }
+
+        /* Hover effect for the button using Light Blue */
+        .btn:hover { 
+            background-color: #3b82f6; /* Light Blue */
+        }
+
+        .links { 
+            margin-top: 1rem; 
+            text-align: center; 
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2>User Signup</h2>
+        <form id="signup-form">
+            <div class="input-field">
+                <i class="fas fa-user"></i>
+                <input type="email" id="signup-email" placeholder="Email" required>
+            </div>
+            <div class="input-field">
+                <i class="fas fa-lock"></i>
+                <input type="password" id="signup-password" placeholder="Password" required>
+            </div>
+            <a><button class="btn" type="submit" href="login_g.html">SIGN UP</button>
+        </form>
+        <div class="links">
+            <a href="login_g.html">Already have an account? Login</a>
+        </div>
+    </div>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+        import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+        import { getDatabase, ref, set, get } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js";
+
+        // Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyD83YvGjwzfp8hRGf2dmh6mjC0fJa5x0Co",
+            authDomain: "thryve-a92c6.firebaseapp.com",
+            projectId: "thryve-a92c6",
+            storageBucket: "thryve-a92c6.appspot.com",
+            messagingSenderId: "414066668747",
+            appId: "1:414066668747:web:66882e1cbe41bc1c4a974e",
+            measurementId: "G-27VBVGW8G2"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+        const database = getDatabase(app);
+
+        // Signup form submission
+        document.getElementById("signup-form").addEventListener("submit", async (event) => {
+            event.preventDefault();
+
+            const email = document.getElementById("signup-email").value.trim();
+            const password = document.getElementById("signup-password").value;
+
+            // Email Validation
+            const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+            if (!emailPattern.test(email)) {
+                alert("Please enter a valid email address.");
+                return;
+            }
+
+            if (password.length < 6) {
+                alert("Password must be at least 6 characters long.");
+                return;
+            }
+
+            try {
+                console.log("Trying to register user...");
+
+                const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+                const user = userCredential.user;
+
+                console.log("User created:", user);
+
+                // Reference to user in Firebase Database
+                const userRef = ref(database, "users/" + user.uid);
+
+                // Save user data in Firebase **BEFORE SHOWING ALERT**
+                await set(userRef, {
+                    email: user.email,
+                    uid: user.uid,
+                    createdAt: new Date().toISOString()
+                });
+
+                console.log("User data stored successfully in Firebase!");
+
+                // Store in Local Storage
+                localStorage.setItem("username", user.email);
+
+                // ✅ Show alert **only after Firebase write is successful**
+                alert("🎉 User registered successfully!");
+
+                // ✅ Ensure alert is shown before redirecting
+                setTimeout(() => {
+                    window.location.href = "club.html";
+                }, 500);
+
+            } catch (error) {
+                console.error("Signup Error:", error);
+                let errorMessage = "Error: " + error.message;
+
+                if (error.code === "auth/email-already-in-use") {
+                    errorMessage = "This email is already registered.";
+                } else if (error.code === "auth/weak-password") {
+                    errorMessage = "Your password is too weak. Try a stronger one.";
+                } else if (error.code === "auth/invalid-email") {
+                    errorMessage = "Invalid email format.";
+                }
+
+                alert(errorMessage);
+            }
+        });
+    </script>
+</body>
+</html>

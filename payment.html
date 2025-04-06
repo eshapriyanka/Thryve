@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Thryve</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #f9f5ed;
+      color: #1f1f1f;
+    }
+
+    /* Header */
+    header {
+      background-color: #ffffff;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+      padding: 16px 40px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
+
+    .logo {
+      font-size: 28px;
+      font-weight: 700;
+      color: #001f6b;
+    }
+
+    .logo span {
+      color: #3c7cfb;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      font-size: 16px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #1f1f1f;
+      font-weight: 500;
+      padding: 8px;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: #3c7cfb;
+    }
+
+    .btn {
+      background-color: #001f6b;
+      color: #ffffff;
+      padding: 10px 20px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: background 0.3s ease;
+      font-size: 14px;
+    }
+
+    .btn:hover {
+      background-color: #3c7cfb;
+    }
+
+    .login {
+      font-weight: 500;
+      font-size: 14px;
+      color: #1f1f1f;
+      text-decoration: none;
+      margin-right: 8px;
+    }
+
+    .login:hover {
+      color: #3c7cfb;
+    }
+
+    /* Dropdown styles */
+    .subnav {
+      position: relative;
+      display: inline-block;
+    }
+    /* Hero Section Styles */
+/* Hero Section Styling */
+/* Image Styles */
+.image-container img {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            animation: hoverEffect 2s infinite;
+        }
+
+        .image-container:hover img {
+            transform: translateY(-10px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .text-2xl.font-bold {
+            font-size: 32px !important;
+        }
+
+        @keyframes hoverEffect {
+            0% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+        
+
+        /* Image Styles */
+        .image-container img {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            animation: hoverEffect 2s infinite;
+        }
+
+        .image-container:hover img {
+            transform: translateY(-10px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .text-2xl.font-bold {
+            font-size: 32px !important;
+        }
+
+        @keyframes hoverEffect {
+            0% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+        /* Hero Section Styling */
+        section {
+            background-color: #f9f5ed;
+            padding: 4rem 1rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        section h2 {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #001f6b;
+            margin-bottom: 1rem;
+        }
+
+        section p {
+            font-size: 1.125rem;
+            color: #4b4b4b;
+            max-width: 40rem;
+            margin: 0 auto 1.5rem auto;
+        }
+
+        section a {
+            display: inline-flex;
+            align-items: center;
+            background-color: #001f6b;
+            color: #ffffff;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            transition: background 0.3s ease;
+        }
+
+        section a:hover {
+            background-color: #3b82f6;
+        }
+
+        /* Floating Image Styling */
+        .relative .absolute img {
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .floating-img {
+            transition: transform 0.5s ease, box-shadow 0.3s ease;
+            margin: 0;
+        }
+
+        .floating-img:hover {
+            transform: scale(1.1) rotate(0deg);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+/* Footer Styling */
+footer {
+  background-color: #1e3a8a;
+  color: white;
+  padding: 1.5rem 0;
+  text-align: center;
+}
+
+footer a {
+  color: #b3c7f9;
+  margin: 0 0.5rem;
+  transition: color 0.3s ease;
+}
+
+footer a:hover {
+  color: white;
+}
+
+
+    .subnav-content {
+      display: none;
+      position: absolute;
+      background-color: white;
+      min-width: 160px;
+      z-index: 1;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    .subnav:hover .subnav-content {
+      display: block;
+    }
+
+    .subnav-content a {
+      color: black;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+    }
+
+    .subnav-content a:hover {
+      background-color: #ddd;
+    }
+
+    /* Hero Section */
+    .hero {
+      padding: 80px 40px;
+      background-color: #f9f5ed;
+    }
+
+    .hero small {
+      font-size: 12px;
+      color: #7d7d7d;
+      letter-spacing: 1px;
+    }
+
+    .hero h1 {
+      font-size: 42px;
+      color: #0f1b4c;
+      margin: 16px 0;
+      line-height: 1.4;
+    }
+
+    .hero p {
+      font-size: 16px;
+      color: #4b4b4b;
+      max-width: 600px;
+      margin-bottom: 24px;
+    }
+
+    .hero-buttons a {
+      margin-right: 20px;
+      font-size: 14px;
+    }
+
+    /* Image Styles */
+    .image-container img {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      animation: hoverEffect 2s infinite;
+    }
+
+    .image-container:hover img {
+      transform: translateY(-10px); /* Moves image up */
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    }
+    .text-2xl.font-bold {
+      font-size: 32px !important;
+    }
+
+    @keyframes hoverEffect {
+      0% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
+      100% {
+        transform: translateY(0);
+      }
+    }
+    /* Box Section Styling */
+.box-container {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  padding: 3rem 0;
+}
+.marquee-container {
+    overflow: hidden;
+    white-space: nowrap;
+    position: relative;
+    width: 100%;
+    background: #f9f5ed;
+    padding: 10px 0;
+  }
+
+  /* Marquee inner content */
+  .marquee {
+    display: flex;
+    gap: 40px;
+    animation: scrollMarquee 20s linear infinite;
+  }
+
+  /* Reverse scrolling animation */
+  .marquee:hover {
+    animation: scrollMarqueeReverse 20s linear infinite;
+  }
+
+  /* Forward scrolling animation */
+  @keyframes scrollMarquee {
+    0% {
+      transform: translateX(100%);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+
+  /* Reverse scrolling animation */
+  @keyframes scrollMarqueeReverse {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(100%);
+    }
+  }
+
+  /* Logo styles */
+  .marquee img {
+    height: 40px; /* Decreased size */
+    transition: transform 0.5s ease, opacity 0.5s ease;
+  }
+
+  /* Shrink and rotate effect on hover */
+  .marquee img:hover {
+    transform: scale(0.85) rotate(10deg);
+    opacity: 0.7;
+  }
+.box {
+  width: 20rem;
+  background-color: white;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 0.5rem;
+  overflow: hidden;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.box:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.box img {
+  width: 100%;
+  height: 12rem;
+  object-fit: cover;
+}
+
+.box .button-container {
+  padding: 1rem;
+}
+
+.box a {
+  display: inline-block;
+  background-color: #001f6b;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  transition: background 0.3s ease;
+}
+
+.box a:hover {
+  background-color: #3b82f6;
+}
+img:is([sizes="auto" i], [sizes^="auto," i]) { contain-intrinsic-size: 3000px 1500px }
+
+    .container1{
+      max-width: 700px;
+      background-color: white;
+      padding: 30px;
+      margin: auto;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      font-size: 22px;
+      margin-bottom: 10px;
+    }
+
+    p {
+      color: #555;
+      margin-bottom: 25px;
+      font-size: 14px;
+    }
+
+    label {
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+  margin: 20px 0 8px;
+  gap: 10px; /* Adjust this value for more or less space */
+}
+    select {
+      width: 100%;
+height:30px;
+      padding: 10px;
+      font-size: 16px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+    }
+
+    .actions {
+      margin-top: 30px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+width:100px;
+height:30px;
+    }
+
+    .back-btn {
+      background: none;
+      color: #1967d2;
+    }
+
+    .continue-btn {
+      background-color: #1967d2;
+      color: white;
+    }
+  </style>
+</head>
+
+
+
+<body>
+  <!-- Header -->
+  <header class="bg-white shadow-sm">
+    <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+      <!-- Logo -->
+      <a href="index1.html">
+        <div class="text-2xl font-bold">
+          <span class="text-[#1e3a8a]">Th</span><span class="text-[#3b82f6]">ryve</span>
+        </div>
+      </a>
+
+      <!-- Navigation Menu -->
+      <nav class="ml-10 space-x-6 hidden md:flex items-center">
+        <!-- Dropdown Menu for Product -->
+        <div class="subnav">
+          <button class="subnavbtn text-[#1e3a8a] hover:text-[#3b82f6]">
+            Product <i class="fas fa-chevron-down ml-1"></i>
+          </button>
+          <div class="subnav-content">
+            <a href="#">Product 1</a>
+            <a href="#">Product 2</a>
+          </div>
+        </div>
+        
+        <!-- Dropdown Menu for Solutions -->
+        <!-- Dropdown Menu for Solutions -->
+        <div class="subnav">
+            <button class="subnavbtn text-[#1e3a8a] hover:text-[#3b82f6]" onclick="toggleDropdown()">
+              Solutions <i class="fas fa-chevron-down ml-1"></i>
+            </button>
+            <div id="solutions-dropdown" class="subnav-content hidden bg-white p-4 rounded-lg shadow-lg w-64" style="width:400px">
+             
+                  
+                
+                      
+                      <a href="food_solution.html" class="flex items-center gap-3 p-2 hover:bg-gray-100 rounded">
+                          <i class="fas fa-utensils text-lg"></i>
+                          <div>
+                              <p class="font-semibold text-gray-800">Food & Beverage</p>
+                              <span class="text-gray-500 text-sm">Serve personalized experiences</span>
+                          </div>
+                      </a>
+                      <a href="travel.html" class="flex items-center gap-3 p-2 hover:bg-gray-100 rounded">
+                          <i class="fas fa-plane text-lg"></i>
+                          <div>
+                              <p class="font-semibold text-gray-800">Travel & Hospitality</p>
+                              <span class="text-gray-500 text-sm">Effortless travel experiences</span>
+                          </div>
+                      </a>
+                      <a href="retail-ecommerce.html" class="flex items-center gap-3 p-2 hover:bg-gray-100 rounded">
+                          <i class="fas fa-shopping-cart text-lg"></i>
+                          <div>
+                              <p class="font-semibold text-gray-800">Retail & E-commerce</p>
+                              <span class="text-gray-500 text-sm">Engage customers, win loyalty</span>
+                          </div>
+                      </a>
+                      <a href="media.html" class="flex items-center gap-3 p-2 hover:bg-gray-100 rounded">
+                          <i class="fas fa-film text-lg"></i>
+                          <div>
+                              <p class="font-semibold text-gray-800">Media & Entertainment</p>
+                              <span class="text-gray-500 text-sm">Content that connects</span>
+                          </div>
+                      </a>
+                 
+             
+            </div>
+          </div>
+        
+        
+
+        <!-- Dropdown Menu for Resources -->
+        <div class="subnav">
+          <button class="subnavbtn text-[#1e3a8a] hover:text-[#3b82f6]">
+            Resource<i class="fas fa-chevron-down ml-1"></i>
+          </button>
+          <div class="subnav-content">
+            <a href="#">Resource 1</a>
+            <a href="#">Resource 2</a>
+          </div>
+        </div>
+
+        <!-- Dropdown Menu for Partners -->
+        <div class="subnav">
+          <button class="subnavbtn text-[#1e3a8a] hover:text-[#3b82f6]">
+            Partners <i class="fas fa-chevron-down ml-1"></i>
+          </button>
+          <div class="subnav-content">
+            <a href="#">Partner 1</a>
+            <a href="#">Partner 2</a>
+          </div>
+        </div>
+
+        <!-- Plans Link -->
+        <a class="text-[#1e3a8a] hover:text-[#3b82f6]" href="#">Plans</a>
+
+       <!-- Dropdown Menu for Company -->
+       <div class="subnav">
+        <button class="subnavbtn text-[#1e3a8a] hover:text-[#3b82f6]" onclick="toggleDropdown()">
+          Company <i class="fas fa-chevron-down ml-1"></i>
+        </button>
+        <div id="solutions-dropdown" class="subnav-content hidden bg-white p-4 rounded-lg shadow-lg w-64">
+          <a href="about.html" class="flex items-center gap-4 p-2 hover:bg-gray-100 rounded">
+            <div class="flex items-center gap-2" style="width:400px">
+              <i class="fas fa-building" alt="Retail Icon" class="w-8 h-6"> </i>
+              <p class="font-semibold text-gray-800">About Us</p>
+              
+            </div>
+          </a>
+          <a href="contactus.html" class="flex items-center gap-4 p-2 hover:bg-gray-100 rounded">
+            <div class="flex items-center gap-2" style="width:400px">
+              <i class="fas fa-envelope" alt="Retail Icon" class="w-8 h-6"> </i>
+              <p class="font-semibold text-gray-800">Contact Us</p>
+              
+            </div>
+          </a>
+        </div>
+      </div>
+    </nav>
+
+            <!-- User Info -->
+            <div class="flex items-center space-x-4">
+<i class="fas fa-user"></i>
+                <span id="username-display" class="text-[#1e3a8a] font-bold"></span>
+                
+            </div>
+        </div>
+    </header>
+<br>
+    <!-- Main Content -->
+<h2 style="text-align: center">Confirm your account settings</h2>
+<br>
+    <p style="text-align: center">This information will be used to create your account. You can't change these settings later, so choose carefully.</p>
+<br>
+
+    <div class="container1">
+    
+    <label for="country">
+  <i class="fa-solid fa-flag"></i>
+  <span>Billing country</span>
+</label>
+
+    <select id="country">
+      <option>India</option>
+      <option>United States</option>
+      <option>United Kingdom</option>
+      <option>Germany</option>
+      <option>Australia</option>
+    </select>
+<br>
+     <label for="timezone">
+  <i class="fa-solid fa-clock"></i>
+  <span>Time zone</span>
+</label>
+    <select id="timezone">
+      <option>(GMT+05:30) India Time</option>
+      <option>(GMT+00:00) UTC</option>
+      <option>(GMT-05:00) Eastern Time (US & Canada)</option>
+      <option>(GMT+01:00) Central European Time</option>
+      <option>(GMT+10:00) Australian Eastern Time</option>
+    </select>
+<br>
+  <label for="currency">
+  <i class="fa-solid fa-money-bill-wave"></i>
+  <span>Currency</span>
+</label>    <select id="currency">
+      <option>Indian Rupee (INR ₹)</option>
+      <option>US Dollar (USD $)</option>
+      <option>Euro (EUR €)</option>
+      <option>British Pound (GBP £)</option>
+      <option>Australian Dollar (AUD $)</option>
+    </select>
+<br>
+    <div class="actions">
+     <a id="back-btn" class="btn" href="javascript:void(0);">Back</a>
+<a id="continue-btn" class="btn" href="javascript:void(0);">Continue</a>
+    </div>
+  </div>
+    
+        
+              <div class="marquee-container">
+                <div class="marquee">
+                  <img src="https://www.moengage.com/wp-content/plugins/logo-library/public/assets/logo-library/samsung/samsung.svg" alt="Samsung">
+                  <img src="https://www.moengage.com/wp-content/plugins/logo-library/public/assets/logo-library/arvind-lifestyle/arvind-lifestyle.svg" alt="Arvind Lifestyle">
+                  <img src="https://www.moengage.com/wp-content/plugins/logo-library/public/assets/logo-library/landmark-group/landmark-group.svg" alt="Landmark Group">
+                  <img src="https://www.moengage.com/wp-content/plugins/logo-library/public/assets/logo-library/natures-basket/natures-basket.svg" alt="Natures' Basket">
+                  <img src="https://www.moengage.com/wp-content/plugins/logo-library/public/assets/logo-library/westside/westside.svg" alt="Westside">
+                  <img src="https://www.moengage.com/wp-content/plugins/logo-library/public/assets/logo-library/bisleri/bisleri.svg" alt="Bisleri">
+                  <img src="https://www.moengage.com/wp-content/plugins/logo-library/public/assets/logo-library/benetton/benetton.svg" alt="Benetton">
+                  <img src="https://www.moengage.com/wp-content/plugins/logo-library/public/assets/logo-library/coca-cola/coca-cola.svg" alt="Coca Cola">
+                  <img src="https://www.moengage.com/wp-content/plugins/logo-library/public/assets/logo-library/mamaearth/mamaearth.svg" alt="Mamaearth">
+                  <img src="https://www.moengage.com/wp-content/plugins/logo-library/public/assets/logo-library/flipkart/flipkart.svg" alt="Flipkart">
+                  <img src="https://www.moengage.com/wp-content/plugins/logo-library/public/assets/logo-library/hul/hul.svg" alt="HUL">
+                  <img src="https://www.moengage.com/wp-content/plugins/logo-library/public/assets/logo-library/lifestyle/lifestyle.svg" alt="Lifestyle">
+                  <img src="https://www.moengage.com/wp-content/plugins/logo-library/public/assets/logo-library/max-fashion/max-fashion.svg" alt="Max Fashion">
+                  <img src="https://www.moengage.com/wp-content/plugins/logo-library/public/assets/logo-library/havells/havells.svg" alt="Havells">
+                  <img src="https://www.moengage.com/wp-content/plugins/logo-library/public/assets/logo-library/marks-and-spencers/marks-and-spencers.svg" alt="Marks & Spencers">
+                  <img src="https://www.moengage.com/wp-content/plugins/logo-library/public/assets/logo-library/bigbasket/bigbasket.svg" alt="BigBasket">
+                </div>
+              </div>
+              </br>
+              
+    <script>
+        // Get the username from localStorage and display it
+        const username = localStorage.getItem("username");
+        if (username) {
+            // Extract the part before the "@" symbol
+            const displayName = username.split('@')[0];
+            document.getElementById("username-display").textContent = displayName;
+        }
+        
+  function toggleDropdown() {
+    var dropdown = document.getElementById("solutions-dropdown");
+    dropdown.classList.toggle("hidden");
+  }
+    document.addEventListener("DOMContentLoaded", function () {
+    const continueButton = document.getElementById("continue-btn");
+    const backButton = document.getElementById("back-btn");
+
+    if (continueButton) {
+      continueButton.addEventListener("click", function () {
+        window.location.href = "payment1.html";
+      });
+    }
+
+    if (backButton) {
+      backButton.addEventListener("click", function () {
+        window.location.href = "ads.html";
+      });
+    }
+  });    </script>
+    <!-- Footer Section -->
+
+
+<!-- Increase Thryve Logo Size in Header -->
+    
+</body>
+<footer class="bg-[#1e3a8a] text-white py-6 mt-10">
+  <div class="container mx-auto text-center">
+    <p class="text-sm">&copy; 2025 Thryve. All rights reserved.</p>
+    <div class="mt-2">
+      <a href="#" class="text-gray-300 hover:text-white mx-2">Privacy Policy</a>
+      <a href="#" class="text-gray-300 hover:text-white mx-2">Terms of Service</a>
+      <a href="#" class="text-gray-300 hover:text-white mx-2">Contact Us</a>
+    </div>
+  </div>
+</footer>
+</html>

@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Thryve - User Login</title>
+    <link rel="icon" href="logo1.jpg" type="image/png" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      body {
+        background: #ffffff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+      }
+
+      .container {
+        width: 800px;
+        height: 450px;
+        display: flex;
+        border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        background: #fff;
+      }
+
+      .left-panel {
+        flex: 1;
+        background: #001f6b;
+        color: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 2rem;
+        text-align: center;
+      }
+
+      .left-panel h2 {
+        font-size: 1.8rem;
+        line-height: 1.5;
+      }
+
+      .right-panel {
+        flex: 1;
+        padding: 2rem 2.5rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      .right-panel h2 {
+        font-size: 1.8rem;
+        color: #1f2937;
+        margin-bottom: 1rem;
+        text-align: center;
+      }
+
+      .input-field {
+        position: relative;
+        margin: 1rem 0;
+      }
+
+      .input-field i {
+        position: absolute;
+        top: 50%;
+        left: 10px;
+        transform: translateY(-50%);
+        color: #6b7280;
+      }
+
+      .input-field input {
+        width: 100%;
+        padding: 0.8rem 0.8rem 0.8rem 2.5rem;
+        border-radius: 8px;
+        border: 1px solid #d1d5db;
+        font-size: 1rem;
+        outline: none;
+      }
+
+      .input-field input:focus {
+        border-color: #001f6b;
+        box-shadow: 0 0 5px rgba(0, 31, 107, 0.5);
+      }
+
+      .btn {
+        margin-top: 1rem;
+        padding: 0.8rem;
+        background-color: #001f6b;
+        border: none;
+        color: #fff;
+        font-size: 1rem;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      .btn:hover {
+        background-color: #3b82f6;
+      }
+
+      .links {
+        margin-top: 1rem;
+        text-align: center;
+      }
+
+      .links a {
+        color: #001f6b;
+        text-decoration: none;
+        margin: 0 0.5rem;
+        font-size: 0.95rem;
+      }
+
+      .links a:hover {
+        text-decoration: underline;
+      }
+
+      @media (max-width: 768px) {
+        .container {
+          flex-direction: column;
+          width: 90%;
+          height: auto;
+        }
+
+        .left-panel {
+          padding: 1.5rem;
+        }
+
+        .right-panel {
+          padding: 1.5rem;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="left-panel">
+        <h2>
+          <b>Digital Access</b><br />"Empowering local economies to compete
+          globally"
+        </h2>
+      </div>
+      <div class="right-panel">
+        <h2>User Login</h2>
+        <form id="login-form">
+          <div class="input-field">
+            <i class="fas fa-user"></i>
+            <input
+              type="email"
+              id="email"
+              placeholder="Email or Username"
+              required
+            />
+          </div>
+          <div class="input-field">
+            <i class="fas fa-lock"></i>
+            <input
+              type="password"
+              id="password"
+              placeholder="Password"
+              required
+            />
+          </div>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button
+            class="btn"
+            type="submit"
+            id="sign-in-btn"
+          >
+            SIGN IN
+          </button>
+        </form>
+        <div class="links">
+          <a href="#">Forgot Password?</a> |
+          <a href="signup.html">Sign Up</a>
+        </div>
+      </div>
+    </div>
+    <script type="module">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+      import {
+        getAuth,
+        signInWithEmailAndPassword,
+      } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+
+      const firebaseConfig = {
+        apiKey: "AIzaSyD83YvGjwzfp8hRGf2dmh6mjC0fJa5x0Co",
+        authDomain: "thryve-a92c6.firebaseapp.com",
+        projectId: "thryve-a92c6",
+        storageBucket: "thryve-a92c6.firebasestorage.app",
+        messagingSenderId: "414066668747",
+        appId: "1:414066668747:web:66882e1cbe41bc1c4a974e",
+        measurementId: "G-27VBVGW8G2",
+      };
+
+      const app = initializeApp(firebaseConfig);
+      const auth = getAuth(app);
+
+      document
+        .getElementById("login-form")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
+
+          const email = document.getElementById("email").value.trim();
+          const password = document.getElementById("password").value;
+
+          if (!email.includes("@") || !email.includes(".")) {
+            alert("Please enter a valid email address.");
+            return;
+          }
+
+          signInWithEmailAndPassword(auth, email, password)
+            .then((userCredential) => {
+              alert("User login successful!");
+              localStorage.setItem("username", userCredential.user.email);
+
+              // Ensure file exists & introduce a small delay
+              setTimeout(() => {
+                window.location.href = "index1.html";
+              }, 500);
+            })
+            .catch((error) => {
+              console.error("Login Error:", error);
+              let errorMessage = "Login failed. " + error.message;
+
+              if (
+                error.code === "auth/user-not-found" ||
+                error.code === "auth/invalid-email"
+              ) {
+                errorMessage = "Invalid email or user not found.";
+              } else if (error.code === "auth/wrong-password") {
+                errorMessage = "Incorrect password.";
+              }
+
+              alert(errorMessage);
+            });
+        });
+    </script>
+  </body>
+</html>

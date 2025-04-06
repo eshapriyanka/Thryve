@@ -1,0 +1,1111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Thryve</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet"/>
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #f9f5ed;
+      color: #1f1f1f;
+    }
+
+       header {
+      background-color: #ffffff;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+      padding: 16px 40px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
+
+    .logo {
+      font-size: 28px;
+      font-weight: 700;
+      color: #001f6b;
+    }
+
+    .logo span {
+      color: #3c7cfb;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      font-size: 16px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #1f1f1f;
+      font-weight: 500;
+      padding: 8px;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: #3c7cfb;
+    }
+
+    .btn {
+      background-color: #001f6b;
+      color: #ffffff;
+      padding: 10px 20px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: background 0.3s ease;
+      font-size: 14px;
+    }
+
+    .btn:hover {
+      background-color: #3c7cfb;
+    }
+
+    .login {
+      font-weight: 500;
+      font-size: 14px;
+      color: #1f1f1f;
+      text-decoration: none;
+      margin-right: 8px;
+    }
+
+    .login:hover {
+      color: #3c7cfb;
+    }
+
+.image-container img {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            animation: hoverEffect 2s infinite;
+        }
+
+        .image-container:hover img {
+            transform: translateY(-10px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .text-2xl.font-bold {
+            font-size: 32px !important;
+        }
+
+        @keyframes hoverEffect {
+            0% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+        
+
+        /* Image Styles */
+        .image-container img {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            animation: hoverEffect 2s infinite;
+        }
+
+        .image-container:hover img {
+            transform: translateY(-10px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .text-2xl.font-bold {
+            font-size: 32px !important;
+        }
+
+        @keyframes hoverEffect {
+            0% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+        /* Hero Section Styling */
+        section {
+            background-color: #f9f5ed;
+            padding: 4rem 1rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        section h2 {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #001f6b;
+            margin-bottom: 1rem;
+        }
+
+        section p {
+            font-size: 1.125rem;
+            color: #4b4b4b;
+            max-width: 40rem;
+            margin: 0 auto 1.5rem auto;
+        }
+
+        section a {
+            display: inline-flex;
+            align-items: center;
+            background-color: #001f6b;
+            color: #ffffff;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            transition: background 0.3s ease;
+        }
+
+        section a:hover {
+            background-color: #3b82f6;
+        }
+
+        /* Floating Image Styling */
+        .relative .absolute img {
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .floating-img {
+            transition: transform 0.5s ease, box-shadow 0.3s ease;
+            margin: 0;
+        }
+
+        .floating-img:hover {
+            transform: scale(1.1) rotate(0deg);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+/* Footer Styling */
+footer {
+  background-color: #1e3a8a;
+  color: white;
+  padding: 1.5rem 0;
+  text-align: center;
+}
+
+footer a {
+  color: #b3c7f9;
+  margin: 0 0.5rem;
+  transition: color 0.3s ease;
+}
+
+footer a:hover {
+  color: white;
+}
+
+
+
+nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* ... (Your existing CSS styles) ... */
+        .subnav {
+            position: relative;
+            display: inline-block;
+        }
+
+        .subnav-content {
+      display: none;
+      position: absolute;
+      background-color: white;
+      min-width: 160px;
+      z-index: 1;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    .subnav:hover .subnav-content {
+      display: block;
+    }
+
+    .subnav-content a {
+      color: black;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+    }
+
+    .subnav-content a:hover {
+      background-color: #ddd;
+    }
+
+    .hero {
+      padding: 80px 40px;
+      background-color: #f9f5ed;
+    }
+
+    .hero small {
+      font-size: 12px;
+      color: #7d7d7d;
+      letter-spacing: 1px;
+    }
+
+    .hero h1 {
+      font-size: 42px;
+      color: #0f1b4c;
+      margin: 16px 0;
+      line-height: 1.4;
+    }
+
+    .hero p {
+      font-size: 16px;
+      color: #4b4b4b;
+      max-width: 600px;
+      margin-bottom: 24px;
+    }
+
+    .hero-buttons a {
+      margin-right: 20px;
+      font-size: 14px;
+    }
+
+    /* Image Styles */
+    .image-container img {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      animation: hoverEffect 2s infinite;
+    }
+
+    .image-container:hover img {
+      transform: translateY(-10px); /* Moves image up */
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    }
+    .text-2xl.font-bold {
+      font-size: 32px !important;
+    }
+
+    @keyframes hoverEffect {
+      0% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
+      100% {
+        transform: translateY(0);
+      }
+    }
+    /* Box Section Styling */
+.box-container {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  padding: 3rem 0;
+}
+.marquee-container {
+    overflow: hidden;
+    white-space: nowrap;
+    position: relative;
+    width: 100%;
+    background: #f9f5ed;
+    padding: 10px 0;
+  }
+
+  /* Marquee inner content */
+  .marquee {
+    display: flex;
+    gap: 40px;
+    animation: scrollMarquee 20s linear infinite;
+  }
+
+  /* Reverse scrolling animation */
+  .marquee:hover {
+    animation: scrollMarqueeReverse 20s linear infinite;
+  }
+
+  /* Forward scrolling animation */
+  @keyframes scrollMarquee {
+    0% {
+      transform: translateX(100%);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+
+  /* Reverse scrolling animation */
+  @keyframes scrollMarqueeReverse {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(100%);
+    }
+  }
+
+  /* Logo styles */
+  .marquee img {
+    height: 40px; /* Decreased size */
+    transition: transform 0.5s ease, opacity 0.5s ease;
+  }
+
+  /* Shrink and rotate effect on hover */
+  .marquee img:hover {
+    transform: scale(0.85) rotate(10deg);
+    opacity: 0.7;
+  }
+.box {
+  width: 20rem;
+  background-color: white;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 0.5rem;
+  overflow: hidden;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.box:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.box img {
+  width: 100%;
+  height: 12rem;
+  object-fit: cover;
+}
+
+.box .button-container {
+  padding: 1rem;
+}
+.company-item i {
+            font-size: 24px;
+            color: #000;
+        }
+
+        .postid-67405 .pillarCardImg img, .postid-67233 .pillarCardImg img{
+    display: none;
+}
+.hubpage-hero-section {
+    padding-top: 90px !important;
+    padding-bottom: 80px !important;
+}
+.page-template-template-forrester .forrester-main-container .channel-hero-section .main-header {
+    font-size: 38px !important;
+
+}
+.hi-lp-main .info-block-content-col ul {
+    font-size: 1.25rem !important;
+    font-weight: 400 !important;
+}
+.hubspot-form-container .hs-fieldtype-phonenumber .hs-input {
+    display: block;
+    width: 100%;
+    padding: 0.575rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border-radius: 0.25rem;
+    box-shadow: none;
+}
+.hubspot-form-container .hs-fieldtype-phonenumber {
+    margin-bottom: 0.875rem;
+}
+.hubspot-form-container .hs-fieldtype-phonenumber.hs-form-field label:not(.hs-error-msg) {
+  font-size: .875rem;
+    margin-bottom: 4px;
+    margin-inline-start: 2px;
+}
+
+.platform-detail-main .logo-container .logo-image-container > *:not(.marker) {
+  margin-right: 4rem;
+}
+.platform-detail-main .logo-container {
+  margin: 0;
+}
+.platform-detail-main .logo-container .logo-image-container {
+  flex-wrap: wrap;
+    margin-right: -4rem;
+}
+.platform-detail-main .logo-container .logo-image-container > img {
+  margin-bottom: 3rem;
+}
+.footer.with-offices .footer-col-left-inner .office-list-container > ul:last-child {
+  margin-inline-end: unset;
+}
+.footer.with-offices .office-list-container a {
+  margin: 0;
+  text-decoration: unset;
+}
+.footer.with-offices .office-list-container a:hover {
+  text-decoration: underline;
+}
+.forrester-main-container .hubspot-form-container .hs-fieldtype-text.hs-form-field label:not(.hs-error-msg), .forrester-main-container .forrester-right-container .forrester-hubspot-form .hubspot-form-container .hs-fieldtype-select.hs-form-field label:not(.hs-error-msg) {
+    display: inherit !important;
+	  font-size: 1rem;
+    line-height: 1.5rem;
+}
+.forrester-main-container .default-form.hubspot-form-container .hs-form .hs-fieldtype-text.field {
+    margin-top: 0.475rem;
+}
+.forrester-main-container .hubspot-form-container .hs-form .hs-fieldtype-select select {
+    background: #F2FAFB;
+    border: 1px solid #001447;
+}
+.reliable-main.industry-customer-stories-container .logo-image-container img {
+  
+    max-width: 150px;
+}
+
+.highlight-and-share-wrapper div.has-tooltip,.highlight-and-share-wrapper:after{ bottom:18px !important; }
+.postid-45719 .pillarCardImg img {
+    display: none;
+}
+.pricing-plan .table-container tr td:not(:first-child), .pricing-plan .table-container thead th:not(:first-child) {
+    font-size: 1rem;
+}
+a.make-underline {
+    text-decoration: underline;
+}
+.onboarding-overlay-row .cta-link.yellow-outline {
+    font-size: 20px;
+}
+.page-template-template-customer-journey .moe-accordion-content ul li {
+    font-size: 18px;
+    font-family: 'circular';
+    font-weight: 200;
+}
+.page-template-template-customer-journey .moe-accordion-content p {
+    margin: 10px !important;
+}
+.onboarding-card-container.active .overlay-content a {
+    text-decoration: none;
+}
+
+.hs_i_would_like_to_receive_updates_from_moengage_on_their_future_events_and_industry_related_content_.hs-i_would_like_to_receive_updates_from_moengage_on_their_future_events_and_industry_related_content_.hs-fieldtype-booleancheckbox.field.hs-form-field ul.inputs-list {
+    list-style: none;
+    padding-left: 0px !important;
+}
+.eu-demo-container .modal {
+    background-color: rgba(0,0,0,.8) !important;
+}
+.pillarContentLeft tbody, .pillarContentLeft td, .pillarContentLeft tfoot, .pillarContentLeft th, .pillarContentLeft thead, .pillarContentLeft tr {
+    border-width: 2px !important;
+    padding: 10px 10px !important;
+    border-color: #b4a8a8 !important;
+}
+
+body.page-id-49326 .customer-stories-section-container .tabs-container li {     margin-right: 3rem; }
+
+
+body.page-template-whatsapp-roi-php nav.without-content-wrapper.nav-minimal.white.moe-blue1.center.sticky.nav-minimal-with-overlay.is-overlay-active {
+    border-bottom: 1px solid #d3d1d1;
+}
+body.page-template-template-eu-demo-php .faq-container p a { text-decoration: underline !important;} 
+
+.eu-demo-container .eu-modal .modal-content .left-popup-info {
+    background-color: #88e7ae !important;
+}
+.postid-52580 .form-only-section .hubspot-form-container.moe-inline-form .hs-form .hs-submit {
+    grid-column: unset;
+    justify-content: flex-start !important;
+    margin-top: 20px !important;
+}
+.knowledgebase-page-container .pillarMainContent .pillarContentLeft>p:first-of-type{ 
+	display:block; 
+}
+@media (max-width: 1199.98px){
+.page-id-53248 .request-form-section .main-header {
+    font-size: 28px;
+}
+}
+.postid-53351 .pillarCardWrapper img, .postid-53918 .pillarCardWrapper img, .postid-53927 .pillarCardWrapper img, .postid-53931 .pillarCardWrapper img, .postid-53935 .pillarCardWrapper img, .postid-53939 .pillarCardWrapper img{
+    display: none !important;
+}
+.page-template-template-industry-revamp .enterprise-img-container a:nth-child(6) {
+    display: none !important;
+}
+
+.flex-display-container{ display: flex;align-items: center;margin-bottom: 1rem;color: var(--gray);
+}
+.flex-display-container span{color: var(--gray);}
+.flex-display-container img{width: 35px;height: 35px;border-radius: 50%;background-color: #011447 !important;margin: 0 0.5rem;
+}
+.request-form-section .hubspot-form-container .hs-fieldtype-phonenumber.hs-form-field label:not(.hs-error-msg){
+    font-size: 1rem;
+    line-height: 1.5rem;
+   margin-bottom: 2px;
+    margin-left: 0;
+}
+ 
+.hubpage-main .hubpage-card-section .hp-cards-list .hp-card-image-container {aspect-ratio: 300 / 157;}
+.homepage-banner-card-container .banner-card {
+    background-color: #e5fced !important;
+}
+.page-id-51 .filter-left {
+    top: 0 !important;
+}
+.case-study-page .filter-left {
+    top: 0;
+}
+.exp-demo-form-section .hubspot-form-container.white-border-input .hs-form-field .hs-input {
+    color: #000;
+}
+.page-template-template-industry-revamp .tabs-content-container p {
+    margin: 0;
+}
+
+.postid-57987 .pillarCardImg {
+    display: none;
+}
+.postid-42240 .blog-author-details li:nth-child(1) {
+    display: none !important;
+}
+body.page-template-archive-app-marketplacenew #app-marketplace-cards .filter-left{ top:0; }
+
+/* Homepage CSS for fixing thumbnail after the logo fold */
+.video-card-container.video-card-container-ccmr .video-container {
+    width: 205px;
+    flex-shrink: 0;
+}
+@media (max-width: 767.98px) {
+    .homepage-banner-card-container.homepage-banner-card-container .video-card-container .video-container {
+        margin-inline-end: 0;
+        margin-block-end: 0;
+        width: 100%;
+    }
+}
+/* End homepage css fix */
+
+body.single-casestudy .case-study-main .left-right-section-wrapper .left-col ul { margin-bottom: 1rem;margin-top: 1rem;}
+
+
+body.page-id-59170 p.__hero-form-description{ font-size: 1.5rem; }
+body.page-id-59170 .hbspt-form .hs-richtext p{ color: #5c616c;}
+body.page-id-59170 .hbspt-form .hs-richtext a{text-decoration: underline; }
+body.page-id-59170 .hbspt-form .__cta-banner-btn{ margin-top:0; }
+.page-id-58404 .__cwrc-section.__variant-e .__date-bar-container {
+    display: none;
+}
+
+@media only screen and (max-width: 768px) {
+  .responsive-100 { width:100% !important}
+}
+.case-study-page .accordions.filter-accordians .accordion-item:nth-child(3) {
+    display: none;
+}
+section.hero-main-section.platform-hero-section {
+    background-color: #f3efe6;
+    background-image: none;
+    color: #001447;
+}
+section.hero-main-section.platform-hero-section h1.hero-main-header {
+    font-size: 58px;
+    line-height: 66px;
+    font-weight: 450;
+}
+.platform-features-section {
+    background-image: none;
+}
+section.hero-main-section.platform-hero-section .page-tag {
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 24px;
+    color: #001447;
+    font-family: Source Code Pro, system-ui;
+}
+section.hero-main-section.platform-hero-section .btn-primary {
+    background-color: #001447;
+    color: #ffffff;
+    font-weight: 500;
+    border: 1px solid #001447;
+    font-size: 1.125rem !important;
+    line-height: 1.66 !important;
+}
+section.hero-main-section.platform-hero-section .cta-link.yellow-fill {
+    color: #001447;
+    font-weight: 600;
+    text-decoration: none !important;
+}
+section.hero-main-section.platform-hero-section .cta-link.yellow-fill::after {
+    background-color: #f3efe6 !important;
+	background-color: #f3efe6;
+}
+
+.page-id-64264 .v2-global-notification-bar{ display:none !important; }
+
+.hero-section-header-row .left-col-container .bg-img {
+	object-fit: cover;
+}
+
+.case-study-page .case-study-img-overlay .title {
+    width: 100%;
+	  line-height: 1.3;
+}
+body.page-template-template-push-amplification .form-only-section .hubspot-form-container.moe-inline-form .hs-form .hs-submit{ justify-content: flex-start; }
+
+body.page-template-archive-glossary .resources-header-section{ background-image: unset; }
+
+.single-post.postid-67199 .pillarCardImg {
+    display: none;
+}
+.v2-request-demo-form-container .hs-form-field select option {
+    color: #282c30;
+}
+.v2-request-demo-form-container .hs-form-field select option:disabled {
+  color: #282c30;
+}
+
+
+
+.postid-67608 .v2-ama-hero-image {
+    position: relative;
+}
+.postid-67608 .v2-ama-hero-image::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background-image: url('/wp-content/uploads/hero-banner-ama-2.webp');
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+.postid-67608 .v2-ama-hero-image > img {
+    opacity: 0;
+}
+.postid-67608 .v2-ama-bg {
+    background-color: transparent;
+}		
+.box a {
+  display: inline-block;
+  background-color: #001f6b;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  transition: background 0.3s ease;
+}
+img:is([sizes="auto" i], [sizes^="auto," i]) { contain-intrinsic-size: 3000px 1500px }
+
+.box a:hover {
+  background-color: #3b82f6;
+}
+img:is([sizes="auto" i], [sizes^="auto," i]) { contain-intrinsic-size: 3000px 1500px }
+.who-we-are-section {
+            background-color: #f9f5ed;
+            padding: 4rem 1rem;
+            text-align: center;
+        }
+
+        .who-we-are-section h2 {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #001f6b;
+            margin-bottom: 1rem;
+        }
+
+        .who-we-are-section p {
+            color: #4b4b4b;
+            max-width: 40rem;
+            margin: 0 auto 1.5rem auto;
+        }
+
+        .grid-cols-4 {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .grid-cols-4 .flex {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .grid-cols-4 img {
+            width: 3rem;
+            height: 3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .grid-cols-4 p {
+            font-weight: 600;
+            color: #333;
+            font-size: 0.9rem; /* Adjust as needed */
+            line-height: 1.2;
+        }
+
+        /* Additional text styling */
+        .additional-text {
+            margin-top: 2rem;
+            font-size: 0.9rem;
+            color: #4b4b4b;
+            text-align: left;
+            max-width: 80%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        @media (max-width: 768px) {
+            .grid-cols-4 {
+                grid-template-columns: 1fr;
+            }
+        }
+/* Dropdown styles */
+    .subnav {
+      position: relative;
+      display: inline-block;
+    }
+
+    .subnav-content {
+      display: none;
+      position: absolute;
+      background-color: white;
+      min-width: 160px;
+      z-index: 1;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    .subnav:hover .subnav-content {
+      display: block;
+    }
+
+    .subnav-content a {
+      color: black;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+    }
+
+    .subnav-content a:hover {
+      background-color: #ddd;
+    }
+
+  </style>
+</head>
+
+
+
+<body>
+  <!-- Header -->
+  <header class="bg-white shadow-sm">
+    <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+      <!-- Logo -->
+      <a href="index1.html">
+        <div class="text-2xl font-bold">
+          <span class="text-[#1e3a8a]">Th</span><span class="text-[#3b82f6]">ryve</span>
+        </div>
+      </a>
+
+      <!-- Navigation Menu -->
+      <nav class="ml-10 space-x-6 hidden md:flex items-center">
+        <!-- Dropdown Menu for Product -->
+        <div class="subnav">
+          <button class="subnavbtn text-[#000000] hover:text-[#1e3a8a]">
+            Product <i class="fas fa-chevron-down ml-1"></i>
+          </button>
+          <div id="solutions-dropdown" class="subnav-content hidden bg-white p-4 rounded-lg shadow-lg w-64" style="width:400px">
+   
+        <a href="customer.html" class="flex items-start gap-3 hover:bg-gray-100 p-2 rounded">
+  <i class="fas fa-eye text-[#000000] text-xl mt-1"></i>
+  <div>
+    <h3 class="text-[#000000] hover:text-[#1e3a8a]">Customer Insights</h3>
+    <p class="text-sm text-gray-600">Gain a 360° view of your customer</p>
+  </div>
+</a>
+
+            <a href="cross-channel.html" class="flex items-start gap-3 hover:bg-gray-100 p-2 rounded">
+              <i class="fas fa-share-alt text-[#000000] text-xl mt-1"></i>
+              <div>
+                <h3 class=" text-[#000000] hover:text-[#1e3a8a]">Cross-Channel Marketing</h3>
+                <p class="text-sm text-gray-600">Seamlessly connect across all channels</p>
+              </div>
+            </a>
+            <a href="web-app.html" class="flex items-start gap-3 hover:bg-gray-100 p-2 rounded">
+              <i class="fas fa-user-lock text-[#000000] text-xl mt-1"></i>
+              <div>
+                <h3 class=" text-[#000000] hover:text-[#1e3a8a]">Web and App Application</h3>
+                <p class="text-sm text-gray-600">Deliver relevant and personalized experiences</p>
+              </div>
+            </a>
+            <a href="transaction.html" class="flex items-start gap-3 hover:bg-gray-100 p-2 rounded">
+              <i class="fas fa-comment-dollar text-[#000000] text-xl mt-1"></i>
+              <div>
+                <h3 class=" text-[#000000] hover:text-[#1e3a8a]">Real-Time Transactional Alerts</h3>
+                <p class="text-sm text-gray-600">Sent key updates to customers with a single api</p>
+              </div>
+            </a>
+          </div>
+
+      
+            
+                         
+
+
+        </div>
+        
+        <!-- Dropdown Menu for Solutions -->
+        <!-- Dropdown Menu for Solutions -->
+<!-- Dropdown Menu for Solutions -->
+<div class="subnav">
+  <button class="subnavbtn text-[#000000] hover:text-[#1e3a8a]" onclick="toggleDropdown()">
+    Solutions <i class="fas fa-chevron-down ml-1"></i>
+  </button>
+  <div id="solutions-dropdown" class="subnav-content hidden bg-white p-4 rounded-lg shadow-lg w-64" style="width:400px">
+   
+        
+      
+            
+            <a href="food_solution.html" class="flex items-start gap-3 hover:bg-gray-100 p-2  rounded">
+                <i class="fas fa-utensils text-lg"></i>
+                <div>
+                    <p class="font-semibold text-gray-800">Food & Beverage</p>
+                    <span class="text-gray-500 text-sm">Serve personalized experiences</span>
+                </div>
+            </a>
+            <a href="travel.html" class="flex items-center gap-3 p-2 hover:bg-gray-100 rounded">
+                <i class="fas fa-plane text-lg"></i>
+                <div>
+                    <p class="font-semibold text-gray-800">Travel & Hospitality</p>
+                    <span class="text-gray-500 text-sm">Effortless travel experiences</span>
+                </div>
+            </a>
+            <a href="retail-ecommerce.html" class="flex items-center gap-3 p-2 hover:bg-gray-100 rounded">
+                <i class="fas fa-shopping-cart text-lg"></i>
+                <div>
+                    <p class="font-semibold text-gray-800">Retail & E-commerce</p>
+                    <span class="text-gray-500 text-sm">Engage customers, win loyalty</span>
+                </div>
+            </a>
+            <a href="media.html" class="flex items-center gap-3 p-2 hover:bg-gray-100 rounded">
+                <i class="fas fa-film text-lg"></i>
+                <div>
+                    
+<p class="font-semibold text-gray-800">Media & Entertainment</p>
+                    <span class="text-gray-500 text-sm">Content that connects</span>
+                </div>
+            </a>
+       
+   
+  </div>
+</div>
+
+        <!-- Dropdown Menu for Resources -->
+        <div class="subnav">
+          <button class="subnavbtn text-[#000000] hover:text-[#1e3a8a]">
+            Resources <i class="fas fa-chevron-down ml-1"></i>
+          </button>
+ <div id="solutions-dropdown" class="subnav-content hidden bg-white p-4 rounded-lg shadow-lg w-64" style="width: 400px; padding: 16px;">
+
+            <a href="reports.html" class="flex items-start gap-3 hover:bg-gray-100 p-2 rounded">
+              <i class="fas fa-eye text-[#000000] text-xl mt-1"></i>
+              <div>
+                <h3 class=" text-[#000000] hover:text-[#1e3a8a]">Reports</h3>
+                <p class="text-sm text-gray-600">Gain a 360° view of your customer Reports</p>
+              </div>
+            </a>
+</div>
+
+                 </div>
+
+        <!-- Dropdown Menu for Partners -->
+        <div class="subnav">
+          <button class="subnavbtn text-[#000000] hover:text-[#1e3a8a]">
+            Partners <i class="fas fa-chevron-down ml-1"></i>
+          </button>
+          <div id="solutions-dropdown" class="subnav-content hidden bg-white p-4 rounded-lg shadow-lg w-64" style="width:400px">
+   
+       
+      
+            
+            <a href="partners.html" class="flex items-center gap-4 p-2 hover:bg-gray-100 rounded">
+                <i class="fas fa-handshake text-[#000000] text-xl mt-1"></i>
+                <div>
+                    <p class="font-semibold text-gray-800">Solution Prtner</p>
+                    <span class="text-gray-500 text-sm">Join our exclusive Partner Network</span>
+                </div>
+            </a>
+            <a href="partners1.html" class="flex items-center gap-3 p-2 hover:bg-gray-100 rounded">
+                <i class="fas fa-globe text-[#000000] text-xl mt-1"></i>
+                <div>
+                    <p class="font-semibold text-gray-800">Partner Ecosystem</p>
+                    <span class="text-gray-500 text-sm">Explore our Partner Ecosystem and collaborations</span>
+                </div>
+            </a>
+              
+  </div>
+
+        </div>
+
+        <!-- Plans Link -->
+        <a class="text-[#000000] hover:text-[#1e3a8a]" href="page4.html">Plans</a>
+
+        <!-- Dropdown Menu for Company -->
+        <div class="subnav">
+          <button class="subnavbtn text-[#000000] hover:text-[#1e3a8a]" onclick="toggleDropdown()">
+            Company <i class="fas fa-chevron-down ml-1"></i>
+          </button>
+          <div id="solutions-dropdown" class="subnav-content hidden bg-white p-4 rounded-lg shadow-lg w-64">
+            <a href="about.html" class="flex items-center gap-4 p-2 hover:bg-gray-100 rounded">
+              <div class="flex items-center gap-2" style="width:400px">
+                <i class="fas fa-building" alt="Retail Icon" class="w-8 h-6"> </i>
+                <p class="font-semibold text-gray-800">About Us</p>
+                
+              </div>
+            </a>
+            <a href="contactus.html" class="flex items-center gap-4 p-2 hover:bg-gray-100 rounded">
+              <div class="flex items-center gap-2" style="width:400px">
+                <i class="fas fa-envelope" alt="Retail Icon" class="w-8 h-6"> </i>
+                <p class="font-semibold text-gray-800">Contact Us</p>
+                
+              </div>
+            </a>
+          </div>
+        </div>
+      </nav>
+
+            <!-- User Info -->
+            <div class="flex items-center space-x-4">
+        <i class="fas fa-user"></i>
+        <span id="username-display" class="text-[#1e3a8a] font-bold"></span>
+        <a class="bg-[#1e3a8a] text-white px-4 py-2 rounded hover:bg-[#3b82f6]" href="login_g.html">Log Out</a>
+      </div>
+    </div>
+  </header>
+
+
+
+    <section class="about-us-section bg-gray-100 py-12">
+    <div class="container mx-auto flex flex-col md:flex-row items-center px-6 md:px-12">
+        <div class="md:w-1/2 flex justify-center">
+            <img src="https://www.moengage.com/wp-content/uploads/about-us-hero-img.webp" alt="Empowering Small Businesses" class="w-full max-w-sm rounded-lg shadow-lg">
+        </div>
+        <div class="md:w-1/2 mt-6 md:mt-0 md:ml-12">
+            <h2 class="text-3xl font-bold text-[#001f6b]">Empowering Small Businesses with Thryve</h2>
+            <p class="mt-4 text-gray-700 text-lg">
+                Small businesses are the backbone of local economies, yet many struggle with digital literacy. Thryve integrates Google My Business and Google Ads to provide easy-to-use digital marketing and e-commerce training.
+            </p>
+            <p class="mt-2 text-gray-700 text-lg">
+                We empower businesses with hands-on learning, real-time analytics, and personalized strategies to enhance their online presence, attract more customers, and drive revenue growth.
+            </p>
+            <a href="about.html" class="mt-6 inline-block bg-[#001f6b] text-white px-6 py-3 rounded-lg shadow-md hover:bg-[#3b82f6] transition">Learn More</a>
+        </div>
+    </div>
+</section>
+ <div class="marquee-container">
+      <div class="marquee">
+        <img src="https://www.moengage.com/wp-content/plugins/logo-library/public/assets/logo-library/samsung/samsung.svg" alt="Samsung">
+        <img src="https://www.moengage.com/wp-content/plugins/logo-library/public/assets/logo-library/arvind-lifestyle/arvind-lifestyle.svg" alt="Arvind Lifestyle">
+        <img src="https://www.moengage.com/wp-content/plugins/logo-library/public/assets/logo-library/landmark-group/landmark-group.svg" alt="Landmark Group">
+        <img src="https://www.moengage.com/wp-content/plugins/logo-library/public/assets/logo-library/natures-basket/natures-basket.svg" alt="Natures' Basket">
+        <img src="https://www.moengage.com/wp-content/plugins/logo-library/public/assets/logo-library/westside/westside.svg" alt="Westside">
+        <img src="https://www.moengage.com/wp-content/plugins/logo-library/public/assets/logo-library/bisleri/bisleri.svg" alt="Bisleri">
+        <img src="https://www.moengage.com/wp-content/plugins/logo-library/public/assets/logo-library/benetton/benetton.svg" alt="Benetton">
+        <img src="https://www.moengage.com/wp-content/plugins/logo-library/public/assets/logo-library/coca-cola/coca-cola.svg" alt="Coca Cola">
+        <img src="https://www.moengage.com/wp-content/plugins/logo-library/public/assets/logo-library/mamaearth/mamaearth.svg" alt="Mamaearth">
+        <img src="https://www.moengage.com/wp-content/plugins/logo-library/public/assets/logo-library/flipkart/flipkart.svg" alt="Flipkart">
+        <img src="https://www.moengage.com/wp-content/plugins/logo-library/public/assets/logo-library/hul/hul.svg" alt="HUL">
+        <img src="https://www.moengage.com/wp-content/plugins/logo-library/public/assets/logo-library/lifestyle/lifestyle.svg" alt="Lifestyle">
+        <img src="https://www.moengage.com/wp-content/plugins/logo-library/public/assets/logo-library/max-fashion/max-fashion.svg" alt="Max Fashion">
+        <img src="https://www.moengage.com/wp-content/plugins/logo-library/public/assets/logo-library/havells/havells.svg" alt="Havells">
+        <img src="https://www.moengage.com/wp-content/plugins/logo-library/public/assets/logo-library/marks-and-spencers/marks-and-spencers.svg" alt="Marks & Spencers">
+        <img src="https://www.moengage.com/wp-content/plugins/logo-library/public/assets/logo-library/bigbasket/bigbasket.svg" alt="BigBasket">
+      </div>
+    </div>
+    <section class="who-we-are-section">
+      <div class="container mx-auto">
+          <h2>WHO WE ARE</h2>
+          <p>
+              Customer Obsession. This is our passion. This is our motivation.
+          </p>
+          <p>
+              When we started out, we had only one guiding light - to build the world's most trusted Customer Engagement platform backed by the most comprehensive AI engine. Since 2024, this core principle has steered us to become industry leaders in Customer Engagement, propelled by both customer obsession at scale and continuous product innovation.
+          </p>
+          <div class="grid-cols-4">
+              <div class="flex">
+                  <img src="https://www.moengage.com/wp-content/uploads/flag-1.svg" alt="Founded in 2014">
+                  <p>FOUNDED IN 2024</p>
+                  <span class="additional-text">Thryve is reshaping the Customer Engagement space through product innovation and proprietary technology built in-house.</span>
+              </div>
+              <div class="flex">
+                  <img src="https://www.moengage.com/wp-content/uploads/globe.svg" alt="Presence in 13 Countries">
+                  <p>PRESENCE IN 13 COUNTRIES</p>
+                  <span class="additional-text">We provide the best-in-class regional support and guidance to help you create memorable moments for your customers.</span>
+              </div>
+              <div class="flex">
+                  <img src="https://www.moengage.com/wp-content/uploads/team.svg" alt="700+ Team Members">
+                  <p>700+ TEAM MEMBERS</p>
+                  <span class="additional-text">Our team consists of top talent from across the globe who are highly passionate about driving customer success and product innovation.</span>
+              </div>
+              <div class="flex">
+                  <img src="https://www.moengage.com/wp-content/uploads/brand.svg" alt="1,200+ Brands">
+                  <p>1,200+ BRANDS</p>
+                  <span class="additional-text">Thryve is trusted by leading brands around the world who use our platform to step up their Customer Engagement game.</span>
+              </div>
+          </div>
+      </div>
+  </section>
+            
+              
+   
+
+    <script>
+        // Get the username from localStorage and display it
+        const username = localStorage.getItem("username");
+        if (username) {
+            // Extract the part before the "@" symbol
+            const displayName = username.split('@')[0];
+            document.getElementById("username-display").textContent = displayName;
+        }
+        function toggleCompanyDropdown(dropdownId) {
+            var dropdown = document.getElementById(dropdownId);
+            dropdown.classList.toggle("hidden");
+        } 
+  
+    </script>
+    <!-- Footer Section -->
+
+
+<!-- Increase Thryve Logo Size in Header -->
+    
+</body>
+<footer class="bg-[#1e3a8a] text-white py-6 mt-10">
+  <div class="container mx-auto text-center">
+    <p class="text-sm">&copy; 2025 Thryve. All rights reserved.</p>
+    <div class="mt-2">
+      <a href="#" class="text-gray-300 hover:text-white mx-2">Privacy Policy</a>
+      <a href="#" class="text-gray-300 hover:text-white mx-2">Terms of Service</a>
+      <a href="#" class="text-gray-300 hover:text-white mx-2">Contact Us</a>
+    </div>
+  </div>
+</footer>
+</html>

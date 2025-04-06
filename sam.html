@@ -1,0 +1,876 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Thryve</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet"/>
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #f9f5ed;
+      color: #1f1f1f;
+    }
+
+    /* Header */
+    header {
+      background-color: #ffffff;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+      padding: 16px 40px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
+
+    .logo {
+      font-size: 28px;
+      font-weight: 700;
+      color: #001f6b;
+    }
+
+    .logo span {
+      color: #3c7cfb;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      font-size: 16px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #1f1f1f;
+      font-weight: 500;
+      padding: 8px;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: #3c7cfb;
+    }
+
+    .btn {
+      background-color: #001f6b;
+      color: #ffffff;
+      padding: 10px 20px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: background 0.3s ease;
+      font-size: 14px;
+    }
+
+    .btn:hover {
+      background-color: #3c7cfb;
+    }
+
+    .login {
+      font-weight: 500;
+      font-size: 14px;
+      color: #1f1f1f;
+      text-decoration: none;
+      margin-right: 8px;
+    }
+
+    .login:hover {
+      color: #3c7cfb;
+    }
+
+    /* Dropdown styles */
+    .subnav {
+      position: relative;
+      display: inline-block;
+    }
+    /* Hero Section Styles */
+/* Hero Section Styling */
+/* Image Styles */
+.image-container img {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            animation: hoverEffect 2s infinite;
+        }
+
+        .image-container:hover img {
+            transform: translateY(-10px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .text-2xl.font-bold {
+            font-size: 32px !important;
+        }
+
+        @keyframes hoverEffect {
+            0% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+        
+
+        /* Image Styles */
+        .image-container img {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            animation: hoverEffect 2s infinite;
+        }
+
+        .image-container:hover img {
+            transform: translateY(-10px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .text-2xl.font-bold {
+            font-size: 32px !important;
+        }
+
+        @keyframes hoverEffect {
+            0% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+        /* Hero Section Styling */
+        section {
+            background-color: #f9f5ed;
+            padding: 4rem 1rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        section h2 {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #001f6b;
+            margin-bottom: 1rem;
+        }
+
+        section p {
+            font-size: 1.125rem;
+            color: #4b4b4b;
+            max-width: 40rem;
+            margin: 0 auto 1.5rem auto;
+        }
+
+        section a {
+            display: inline-flex;
+            align-items: center;
+            background-color: #001f6b;
+            color: #ffffff;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            transition: background 0.3s ease;
+        }
+
+        section a:hover {
+            background-color: #3b82f6;
+        }
+
+        /* Floating Image Styling */
+        .relative .absolute img {
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .floating-img {
+            transition: transform 0.5s ease, box-shadow 0.3s ease;
+            margin: 0;
+        }
+
+        .floating-img:hover {
+            transform: scale(1.1) rotate(0deg);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+/* Footer Styling */
+footer {
+  background-color: #1e3a8a;
+  color: white;
+  padding: 1.5rem 0;
+  text-align: center;
+}
+
+footer a {
+  color: #b3c7f9;
+  margin: 0 0.5rem;
+  transition: color 0.3s ease;
+}
+
+footer a:hover {
+  color: white;
+}
+
+
+    .subnav-content {
+      display: none;
+      position: absolute;
+      background-color: white;
+      min-width: 160px;
+      z-index: 1;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    .subnav:hover .subnav-content {
+      display: block;
+    }
+
+    .subnav-content a {
+      color: black;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+    }
+
+    .subnav-content a:hover {
+      background-color: #ddd;
+    }
+
+    /* Hero Section */
+    .hero {
+      padding: 80px 40px;
+      background-color: #f9f5ed;
+    }
+
+    .hero small {
+      font-size: 12px;
+      color: #7d7d7d;
+      letter-spacing: 1px;
+    }
+
+    .hero h1 {
+      font-size: 42px;
+      color: #0f1b4c;
+      margin: 16px 0;
+      line-height: 1.4;
+    }
+
+    .hero p {
+      font-size: 16px;
+      color: #4b4b4b;
+      max-width: 600px;
+      margin-bottom: 24px;
+    }
+
+    .hero-buttons a {
+      margin-right: 20px;
+      font-size: 14px;
+    }
+
+    /* Image Styles */
+    .image-container img {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      animation: hoverEffect 2s infinite;
+    }
+
+    .image-container:hover img {
+      transform: translateY(-10px); /* Moves image up */
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    }
+    .text-2xl.font-bold {
+      font-size: 32px !important;
+    }
+
+    @keyframes hoverEffect {
+      0% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
+      100% {
+        transform: translateY(0);
+      }
+    }
+    /* Box Section Styling */
+.box-container {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  padding: 3rem 0;
+}
+.marquee-container {
+    overflow: hidden;
+    white-space: nowrap;
+    position: relative;
+    width: 100%;
+    background: #f9f5ed;
+    padding: 10px 0;
+  }
+
+  /* Marquee inner content */
+  .marquee {
+    display: flex;
+    gap: 40px;
+    animation: scrollMarquee 20s linear infinite;
+  }
+
+  /* Reverse scrolling animation */
+  .marquee:hover {
+    animation: scrollMarqueeReverse 20s linear infinite;
+  }
+
+  /* Forward scrolling animation */
+  @keyframes scrollMarquee {
+    0% {
+      transform: translateX(100%);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+
+  /* Reverse scrolling animation */
+  @keyframes scrollMarqueeReverse {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(100%);
+    }
+  }
+
+  /* Logo styles */
+  .marquee img {
+    height: 40px; /* Decreased size */
+    transition: transform 0.5s ease, opacity 0.5s ease;
+  }
+
+  /* Shrink and rotate effect on hover */
+  .marquee img:hover {
+    transform: scale(0.85) rotate(10deg);
+    opacity: 0.7;
+  }
+.box {
+  width: 20rem;
+  background-color: white;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 0.5rem;
+  overflow: hidden;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.box:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.box img {
+  width: 100%;
+  height: 12rem;
+  object-fit: cover;
+}
+
+.box .button-container {
+  padding: 1rem;
+}
+
+.box a {
+  display: inline-block;
+  background-color: #001f6b;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  transition: background 0.3s ease;
+}
+
+.box a:hover {
+  background-color: #3b82f6;
+}
+img:is([sizes="auto" i], [sizes^="auto," i]) { contain-intrinsic-size: 3000px 1500px }
+.container1 {
+  background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      max-width: 700px;
+      margin: auto;
+      padding: 1rem;}
+
+h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.card {
+  border: 1px solid #ddd;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.account-box {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.icon {
+  width: 70px;
+  margin-right: 15px;
+}
+
+.account-details {
+  flex-grow: 1;
+}
+
+.link-button,
+.edit-button {
+  background-color: #1a73e8;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.link-button:hover,
+.edit-button:hover {
+  background-color: #1666c1;
+}
+
+.note {
+  font-size: 13px;
+  color: #555;
+}
+
+
+.dropdown-button {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: #f1f1f1;
+  border: none;
+  border-radius: 8px;
+}
+
+.dropdown-content {
+  background-color: #fafafa;
+  border: 1px solid #ddd;
+  margin-top: 8px;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+.navigation-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.skip-button {
+  background: none;
+  border: none;
+  color: #1a73e8;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.next-button {
+  background-color: #1a73e8;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.next-button:hover {
+  background-color: #1666c1;
+}
+ 
+    .toggle-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #e5e5e5;
+      padding: 1rem;
+      cursor: pointer;
+      border-radius: 6px;
+    }
+
+    .arrow {
+      transition: transform 0.3s ease;
+    }
+
+    .arrow.up {
+      transform: rotate(180deg);
+    }
+
+    .account-options {
+      margin-top: 1rem;
+      display: none;
+    }
+
+    .account {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border: 1px solid #e0e0e0;
+      border-radius: 8px;
+      padding: 1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .account-icon {
+      width: 32px;
+      height: 32px;
+      margin-right: 1rem;
+    }
+
+    .account-info {
+      flex-grow: 1;
+    }
+
+    .account-title {
+      font-weight: bold;
+    }
+
+    .account-description {
+      font-size: 0.9rem;
+      color: #555;
+    }
+
+    .add-link {
+      color: #1a73e8;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .footer-buttons {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 2rem;
+    }
+
+    .btn {
+      padding: 0.6rem 1.2rem;
+      border: none;
+      border-radius: 4px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .btn-skip, .btn-back {
+      background: none;
+      color: #1a73e8;
+    }
+
+    .btn-next {
+      background-color: #1a73e8;
+      color: white;
+    }
+  </style>
+</head>
+
+
+
+<body>
+  <!-- Header -->
+  <header class="bg-white shadow-sm">
+    <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+      <!-- Logo -->
+      <div class="text-2xl font-bold">
+        <span class="text-[#1e3a8a]">Th</span><span class="text-[#3b82f6]">ryve</span>
+      </div>
+
+      <!-- Navigation Menu -->
+      <nav class="ml-10 space-x-6 hidden md:flex items-center">
+        <!-- Dropdown Menu for Product -->
+        <div class="subnav">
+          <button class="subnavbtn text-[#1e3a8a] hover:text-[#3b82f6]">
+            Product <i class="fas fa-chevron-down ml-1"></i>
+          </button>
+          <div class="subnav-content">
+            <a href="#">Product 1</a>
+            <a href="#">Product 2</a>
+          </div>
+        </div>
+        
+        <!-- Dropdown Menu for Solutions -->
+        <!-- Dropdown Menu for Solutions -->
+        <div class="subnav">
+          <button class="subnavbtn text-[#1e3a8a] hover:text-[#3b82f6]" onclick="toggleDropdown()">
+            Solutions <i class="fas fa-chevron-down ml-1"></i>
+          </button>
+          <div id="solutions-dropdown" class="subnav-content hidden bg-white p-4 rounded-lg shadow-lg w-64" style="width:400px">
+           
+                
+              
+                    
+                    <a href="food_solution.html" class="flex items-center gap-3 p-2 hover:bg-gray-100 rounded">
+                        <i class="fas fa-utensils text-lg"></i>
+                        <div>
+                            <p class="font-semibold text-gray-800">Food & Beverage</p>
+                            <span class="text-gray-500 text-sm">Serve personalized experiences</span>
+                        </div>
+                    </a>
+                    <a href="travel.html" class="flex items-center gap-3 p-2 hover:bg-gray-100 rounded">
+                        <i class="fas fa-plane text-lg"></i>
+                        <div>
+                            <p class="font-semibold text-gray-800">Travel & Hospitality</p>
+                            <span class="text-gray-500 text-sm">Effortless travel experiences</span>
+                        </div>
+                    </a>
+                    <a href="retail-ecommerce.html" class="flex items-center gap-3 p-2 hover:bg-gray-100 rounded">
+                        <i class="fas fa-shopping-cart text-lg"></i>
+                        <div>
+                            <p class="font-semibold text-gray-800">Retail & E-commerce</p>
+                            <span class="text-gray-500 text-sm">Engage customers, win loyalty</span>
+                        </div>
+                    </a>
+                    <a href="media.html" class="flex items-center gap-3 p-2 hover:bg-gray-100 rounded">
+                        <i class="fas fa-film text-lg"></i>
+                        <div>
+                            <p class="font-semibold text-gray-800">Media & Entertainment</p>
+                            <span class="text-gray-500 text-sm">Content that connects</span>
+                        </div>
+                    </a>
+               
+           
+          </div>
+        </div>
+        
+        
+
+        <!-- Dropdown Menu for Resources -->
+        <div class="subnav">
+          <button class="subnavbtn text-[#1e3a8a] hover:text-[#3b82f6]">
+            Resources <i class="fas fa-chevron-down ml-1"></i>
+          </button>
+          <div class="subnav-content">
+            <a href="#">Resource 1</a>
+            <a href="#">Resource 2</a>
+          </div>
+        </div>
+
+        <!-- Dropdown Menu for Partners -->
+        <div class="subnav">
+          <button class="subnavbtn text-[#1e3a8a] hover:text-[#3b82f6]">
+            Partners <i class="fas fa-chevron-down ml-1"></i>
+          </button>
+          <div class="subnav-content">
+            <a href="#">Partner 1</a>
+            <a href="#">Partner 2</a>
+          </div>
+        </div>
+
+        <!-- Plans Link -->
+        <a class="text-[#1e3a8a] hover:text-[#3b82f6]" href="#">Plans</a>
+
+       <!-- Dropdown Menu for Company -->
+       <div class="subnav">
+        <button class="subnavbtn text-[#1e3a8a] hover:text-[#3b82f6]" onclick="toggleDropdown()">
+          Company <i class="fas fa-chevron-down ml-1"></i>
+        </button>
+        <div id="solutions-dropdown" class="subnav-content hidden bg-white p-4 rounded-lg shadow-lg w-64">
+          <a href="about.html" class="flex items-center gap-4 p-2 hover:bg-gray-100 rounded">
+            <div class="flex items-center gap-2" style="width:400px">
+              <i class="fas fa-building" alt="Retail Icon" class="w-8 h-6"> </i>
+              <p class="font-semibold text-gray-800">About Us</p>
+              
+            </div>
+          </a>
+          <a href="contactus.html" class="flex items-center gap-4 p-2 hover:bg-gray-100 rounded">
+            <div class="flex items-center gap-2" style="width:400px">
+              <i class="fas fa-envelope" alt="Retail Icon" class="w-8 h-6"> </i>
+              <p class="font-semibold text-gray-800">Contact Us</p>
+              
+            </div>
+          </a>
+        </div>
+      </div>
+    </nav>
+
+            <!-- User Info -->
+            <div class="flex items-center space-x-4">
+<i class="fas fa-user"></i>
+                <span id="username-display" class="text-[#1e3a8a] font-bold"></span>
+                
+            </div>
+        </div>
+    </header>
+<br>
+<main>
+<h2 style="text-align: center;">Add more information to save time during setup</h2>        
+<br>
+  <div class="container1">
+        <div class="card">
+      <h3>Linked accounts</h3>
+
+      <div class="account-box">
+        <img src="https://www.gstatic.com/youtube/img/branding/youtubelogo/svg/youtubelogo.svg" alt="YouTube" class="icon"/>
+        <div class="account-details">
+          <strong>YouTube channel</strong><br/>
+          Link your channel <strong>padilam sirisha</strong> to gain insight into how people engage with your video ads and YouTube channel
+        </div>
+        <button class="link-button" onclick="linkYouTube()">Link</button>
+      </div>
+
+      <div class="account-box">
+        <img src="https://cdn-icons-png.flaticon.com/512/724/724664.png" alt="Phone" class="icon"/>
+        <div class="account-details">
+          <strong>Phone number</strong><br/>
+          Use <strong>IN, 076720 04275</strong> to let people call right from your ads
+        </div>
+        <button class="edit-button" onclick="editPhone()">Edit</button>
+      </div>
+
+      <p class="note">
+        This info comes from your Google Account, and can be removed or edited after campaign creation.
+        <br/>
+        <a href="#">Learn more about linked accounts</a>
+      </p>
+    </div>
+</div>
+<br>
+   <div class="container1">
+    <div class="toggle-header" onclick="toggleAccounts()">
+      <span>Link more accounts</span>
+      <span id="arrow" class="arrow">&#9660;</span>
+    </div>
+
+    <div id="accountOptions" class="account-options">
+      <div class="account">
+        <div style="display: flex; align-items: center;">
+          <img src="https://img.icons8.com/ios-filled/50/download--v1.png" class="account-icon" />
+          <div class="account-info">
+            <div class="account-title">Mobile app</div>
+            <div class="account-description">Promote your app across Search, YouTube and Google Play</div>
+          </div>
+        </div>
+        <div class="add-link">Add</div>
+      </div>
+
+      <div class="account">
+        <div style="display: flex; align-items: center;">
+          <img src="https://img.icons8.com/color/48/google-maps-new.png" class="account-icon" />
+          <div class="account-info">
+            <div class="account-title">Google Business Profile</div>
+            <div class="account-description">Highlight your business in Search and Google Maps</div>
+          </div>
+        </div>
+        <div class="add-link">Add</div>
+      </div>
+    </div>
+
+    <div class="footer-buttons">
+      <button class="btn btn-skip">Skip</button>
+      <div>
+        <button class="btn btn-back">Back</button>
+        <button class="btn btn-next">Next</button>
+      </div>
+    </div>
+  </div>
+</main>
+ 
+
+              <div class="marquee-container">
+                <div class="marquee">
+                  <img src="https://www.moengage.com/wp-content/plugins/logo-library/public/assets/logo-library/samsung/samsung.svg" alt="Samsung">
+                  <img src="https://www.moengage.com/wp-content/plugins/logo-library/public/assets/logo-library/arvind-lifestyle/arvind-lifestyle.svg" alt="Arvind Lifestyle">
+                  <img src="https://www.moengage.com/wp-content/plugins/logo-library/public/assets/logo-library/landmark-group/landmark-group.svg" alt="Landmark Group">
+                  <img src="https://www.moengage.com/wp-content/plugins/logo-library/public/assets/logo-library/natures-basket/natures-basket.svg" alt="Natures' Basket">
+                  <img src="https://www.moengage.com/wp-content/plugins/logo-library/public/assets/logo-library/westside/westside.svg" alt="Westside">
+                  <img src="https://www.moengage.com/wp-content/plugins/logo-library/public/assets/logo-library/bisleri/bisleri.svg" alt="Bisleri">
+                  <img src="https://www.moengage.com/wp-content/plugins/logo-library/public/assets/logo-library/benetton/benetton.svg" alt="Benetton">
+                  <img src="https://www.moengage.com/wp-content/plugins/logo-library/public/assets/logo-library/coca-cola/coca-cola.svg" alt="Coca Cola">
+                  <img src="https://www.moengage.com/wp-content/plugins/logo-library/public/assets/logo-library/mamaearth/mamaearth.svg" alt="Mamaearth">
+                  <img src="https://www.moengage.com/wp-content/plugins/logo-library/public/assets/logo-library/flipkart/flipkart.svg" alt="Flipkart">
+                  <img src="https://www.moengage.com/wp-content/plugins/logo-library/public/assets/logo-library/hul/hul.svg" alt="HUL">
+                  <img src="https://www.moengage.com/wp-content/plugins/logo-library/public/assets/logo-library/lifestyle/lifestyle.svg" alt="Lifestyle">
+                  <img src="https://www.moengage.com/wp-content/plugins/logo-library/public/assets/logo-library/max-fashion/max-fashion.svg" alt="Max Fashion">
+                  <img src="https://www.moengage.com/wp-content/plugins/logo-library/public/assets/logo-library/havells/havells.svg" alt="Havells">
+                  <img src="https://www.moengage.com/wp-content/plugins/logo-library/public/assets/logo-library/marks-and-spencers/marks-and-spencers.svg" alt="Marks & Spencers">
+                  <img src="https://www.moengage.com/wp-content/plugins/logo-library/public/assets/logo-library/bigbasket/bigbasket.svg" alt="BigBasket">
+                </div>
+              </div>
+              </br>
+            </br>
+            
+    <script>
+        // Get the username from localStorage and display it
+        const username = localStorage.getItem("username");
+        if (username) {
+            // Extract the part before the "@" symbol
+            const displayName = username.split('@')[0];
+            document.getElementById("username-display").textContent = displayName;
+        }
+        
+  function toggleDropdown() {
+    var dropdown = document.getElementById("solutions-dropdown");
+    dropdown.classList.toggle("hidden");
+  }
+  function linkYouTube() {
+  alert("YouTube channel linked successfully!");
+}
+
+function editPhone() {
+  const newNumber = prompt("Enter a new phone number:");
+  if (newNumber) {
+    alert(`Phone number updated to ${newNumber}`);
+    // Here you would update the DOM in a real app
+  }
+}
+
+function toggleDropdown() {
+  const dropdown = document.getElementById("dropdown-content");
+  dropdown.style.display = dropdown.style.display === "none" ? "block" : "none";
+}
+function handleAdd(type) {
+  alert(`${type} linking functionality goes here!`);
+}
+function toggleAccounts() {
+      const content = document.getElementById('accountOptions');
+      const arrow = document.getElementById('arrow');
+      content.style.display = content.style.display === 'none' || content.style.display === '' ? 'block' : 'none';
+      arrow.classList.toggle('up');
+    }
+    </script>
+    <!-- Footer Section -->
+
+
+<!-- Increase Thryve Logo Size in Header -->
+    
+</body>
+<footer class="bg-[#1e3a8a] text-white py-6 mt-10">
+  <div class="container mx-auto text-center">
+    <p class="text-sm">&copy; 2025 Thryve. All rights reserved.</p>
+    <div class="mt-2">
+      <a href="#" class="text-gray-300 hover:text-white mx-2">Privacy Policy</a>
+      <a href="#" class="text-gray-300 hover:text-white mx-2">Terms of Service</a>
+      <a href="#" class="text-gray-300 hover:text-white mx-2">Contact Us</a>
+    </div>
+  </div>
+</footer>
+</html>

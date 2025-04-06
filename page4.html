@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Thryve</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet"/>
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #f9f5ed;
+      color: #1f1f1f;
+    }
+    header {
+      background-color: #ffffff;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+      padding: 5px 5px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    .image-container img {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      animation: hoverEffect 2s infinite;
+    }
+    .image-container:hover img {
+      transform: translateY(-10px);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    }
+    @keyframes hoverEffect {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0); }
+    }
+    .dropdown.open .arrow {
+      transform: rotate(180deg);
+    }
+    /* Modify dropdown content for 2-column layout */
+    .dropdown-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      padding: 16px;
+      width: 400px;
+    }
+   .container1 {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .button-group {
+            display: inline-flex;
+            background-color: #fff;
+            padding: 10px;
+            border-radius: 30px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            gap: 10px;
+            margin-top: 20px;
+        }
+        .button {
+            padding: 12px 24px;
+            border-radius: 24px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+            transition: 0.3s ease;
+            background-color: transparent;
+        }
+        .button.active {
+            background-color: #F7E7C0;
+            color: #000;
+        }
+        .button:hover {
+            background-color: #F7E7C0;
+            color: #031A53;
+        }
+        .content {
+            display: flex;
+            justify-content: space-between;
+            width: 80%;
+            margin-top: 20px;
+        }
+        .info-box {
+            width: 50%;
+            padding: 20px;
+            background: rgb(229, 231, 235);
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .info-box h2 {
+            font-size: 28px;
+            color: #000000;
+        }
+        .info-box p {
+            font-size: 16px;
+            color: #000000;
+            margin-bottom: 15px;
+        }
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+        .info-item img {
+            width: 24px;
+            height: 24px;
+        }
+        .feature-boxes {
+            height: 700px;
+            width: 500px;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+        .feature-box {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .cta {
+            margin-top: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .primary-button {
+            background-color: navy;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+        }
+        .learn-more {
+            text-decoration: none;
+            color: navy;
+            font-weight: bold;
+        }
+       
+/* Logo styles */
+  .marquee img {
+    height: 40px; /* Decreased size */
+    transition: transform 0.5s ease, opacity 0.5s ease;
+  }
+
+  /* Shrink and rotate effect on hover */
+  .marquee img:hover {
+    transform: scale(0.85) rotate(10deg);
+    opacity: 0.7;
+  }
+.marquee-container {
+    overflow: hidden;
+    white-space: nowrap;
+    position: relative;
+    width: 100%;
+    background: #f9f5ed;
+    padding: 10px 0;
+  }
+
+  /* Marquee inner content */
+  .marquee {
+    display: flex;
+    gap: 40px;
+    animation: scrollMarquee 20s linear infinite;
+  }
+
+  /* Reverse scrolling animation */
+  .marquee:hover {
+    animation: scrollMarqueeReverse 20s linear infinite;
+  }
+
+  /* Forward scrolling animation */
+  @keyframes scrollMarquee {
+    0% {
+      transform: translateX(100%);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+
+  /* Reverse scrolling animation */
+  @keyframes scrollMarqueeReverse {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(100%);
+    }
+  }
+footer {
+  background-color: #1e3a8a;
+  color: white;
+  padding: 1.5rem 0;
+  text-align: center;
+}
+
+footer a {
+  color: #b3c7f9;
+  margin: 0 0.5rem;
+  transition: color 0.3s ease;
+}
+
+footer a:hover {
+  color: white;
+}
+/* Dropdown styles */
+    .subnav {
+      position: relative;
+      display: inline-block;
+    }
+
+    .subnav-content {
+      display: none;
+      position: absolute;
+      background-color: white;
+      min-width: 160px;
+      z-index: 1;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    .subnav:hover .subnav-content {
+      display: block;
+    }
+
+    .subnav-content a {
+      color: black;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+    }
+
+    .subnav-content a:hover {
+      background-color: #ddd;
+    }
+    .chatbot-toggle {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      z-index: 9999;
+      background-color: white;
+      color: #1e3a8a;
+      border: none;
+      border-radius: 9999px;
+      width: 56px;
+      height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .chatbot-toggle:hover {
+      background-color: #3b82f6;
+    }
+
+    .chatbot-frame-container {
+      position: fixed;
+      bottom: 90px;
+      right: 24px;
+      width: 360px;
+      height: 520px;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      overflow: hidden;
+      display: none;
+      flex-direction: column;
+      z-index: 9998;
+    }
+
+    .chatbot-frame-container iframe {
+      border: none;
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+
+</head>
+
+<body>
+  <header class="bg-white shadow-sm">
+    <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+      <!-- Logo -->
+      <a href="index1.html">
+        <div class="text-2xl font-bold">
+          <span class="text-[#1e3a8a]">Th</span><span class="text-[#3b82f6]">ryve</span>
+        </div>
+      </a>
+
+      <!-- Navigation -->
+      <nav class="ml-10 space-x-6 hidden md:flex items-center relative">
+        <!-- Product Dropdown (Toggle) -->
+        <div class="relative dropdown">
+          <button id="product-toggle" class="flex items-center text-[#000000] hover:text-[#1e3a8a] font-medium focus:outline-none">
+                      </button>
+    
+
+<div class="subnav">
+          <button class="subnavbtn text-[#000000] hover:text-[#1e3a8a]">
+            Product <i class="fas fa-chevron-down ml-1"></i>
+          </button>&nbsp;&nbsp;&nbsp;
+
+          <!-- Dropdown Content -->
+          <div id="solutions-dropdown" class="subnav-content hidden bg-white p-4 rounded-lg shadow-lg w-64" style="width:400px">
+   
+        <a href="customer.html" class="flex items-start gap-3 hover:bg-gray-100 p-2 rounded">
+  <i class="fas fa-eye text-[#000000] text-xl mt-1"></i>
+  <div>
+    <h3 class="text-[#000000] hover:text-[#1e3a8a]">Customer Insights</h3>
+    <p class="text-sm text-gray-600">Gain a 360° view of your customer</p>
+  </div>
+</a>
+
+            <a href="cross-channel.html" class="flex items-start gap-3 hover:bg-gray-100 p-2 rounded">
+              <i class="fas fa-share-alt text-[#000000] text-xl mt-1"></i>
+              <div>
+                <h3 class=" text-[#000000] hover:text-[#1e3a8a]">Cross-Channel Marketing</h3>
+                <p class="text-sm text-gray-600">Seamlessly connect across all channels</p>
+              </div>
+            </a>
+            <a href="web-app.html" class="flex items-start gap-3 hover:bg-gray-100 p-2 rounded">
+              <i class="fas fa-user-lock text-[#000000] text-xl mt-1"></i>
+              <div>
+                <h3 class=" text-[#000000] hover:text-[#1e3a8a]">Web and App Application</h3>
+                <p class="text-sm text-gray-600">Deliver relevant and personalized experiences</p>
+              </div>
+            </a>
+            <a href="transaction.html" class="flex items-start gap-3 hover:bg-gray-100 p-2 rounded">
+              <i class="fas fa-comment-dollar text-[#000000] text-xl mt-1"></i>
+              <div>
+                <h3 class=" text-[#000000] hover:text-[#1e3a8a]">Real-Time Transactional Alerts</h3>
+                <p class="text-sm text-gray-600">Sent key updates to customers with a single api</p>
+              </div>
+            </a>
+          </div>
+
+      
+            
+                         
+
+
+        </div>
+        
+        <!-- Dropdown Menu for Solutions -->
+        <!-- Dropdown Menu for Solutions -->
+<!-- Dropdown Menu for Solutions -->
+<div class="subnav">
+  <button class="subnavbtn text-[#000000] hover:text-[#1e3a8a]" onclick="toggleDropdown()">
+    Solutions <i class="fas fa-chevron-down ml-1"></i>
+  </button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <div id="solutions-dropdown" class="subnav-content hidden bg-white p-4 rounded-lg shadow-lg w-64" style="width:400px">
+   
+        
+      
+            
+            <a href="food_solution.html" class="flex items-start gap-3 hover:bg-gray-100 p-2  rounded">
+                <i class="fas fa-utensils text-lg"></i>
+                <div>
+                    <p class="font-semibold text-gray-800">Food & Beverage</p>
+                    <span class="text-gray-500 text-sm">Serve personalized experiences</span>
+                </div>
+            </a>
+            <a href="travel.html" class="flex items-center gap-3 p-2 hover:bg-gray-100 rounded">
+                <i class="fas fa-plane text-lg"></i>
+                <div>
+                    <p class="font-semibold text-gray-800">Travel & Hospitality</p>
+                    <span class="text-gray-500 text-sm">Effortless travel experiences</span>
+                </div>
+            </a>
+            <a href="retail-ecommerce.html" class="flex items-center gap-3 p-2 hover:bg-gray-100 rounded">
+                <i class="fas fa-shopping-cart text-lg"></i>
+                <div>
+                    <p class="font-semibold text-gray-800">Retail & E-commerce</p>
+                    <span class="text-gray-500 text-sm">Engage customers, win loyalty</span>
+                </div>
+            </a>
+            <a href="media.html" class="flex items-center gap-3 p-2 hover:bg-gray-100 rounded">
+                <i class="fas fa-film text-lg"></i>
+                <div>
+                    
+<p class="font-semibold text-gray-800">Media & Entertainment</p>
+                    <span class="text-gray-500 text-sm">Content that connects</span>
+                </div>
+            </a>
+       
+   
+  </div>
+</div>
+
+        <!-- Dropdown Menu for Resources -->
+        <div class="subnav">
+          <button class="subnavbtn text-[#000000] hover:text-[#1e3a8a]">
+            Resources <i class="fas fa-chevron-down ml-1"></i>
+          </button>&nbsp;&nbsp;&nbsp;&nbsp;
+ <div id="solutions-dropdown" class="subnav-content hidden bg-white p-4 rounded-lg shadow-lg w-64" style="width: 400px; padding: 16px;">
+
+            <a href="reports.html" class="flex items-start gap-3 hover:bg-gray-100 p-2 rounded">
+              <i class="fas fa-eye text-[#000000] text-xl mt-1"></i>
+              <div>
+                <h3 class=" text-[#000000] hover:text-[#1e3a8a]">Reports</h3>
+                <p class="text-sm text-gray-600">Gain a 360° view of your customer Reports</p>
+              </div>
+            </a>
+</div>
+
+                 </div>
+
+        <!-- Dropdown Menu for Partners -->
+        <div class="subnav">
+          <button class="subnavbtn text-[#000000] hover:text-[#1e3a8a]">
+            Partners <i class="fas fa-chevron-down ml-1"></i>
+          </button>&nbsp;&nbsp;&nbsp;
+          <div id="solutions-dropdown" class="subnav-content hidden bg-white p-4 rounded-lg shadow-lg w-64" style="width:400px">
+   
+       
+      
+            
+            <a href="partners.html" class="flex items-center gap-4 p-2 hover:bg-gray-100 rounded">
+                <i class="fas fa-handshake text-[#000000] text-xl mt-1"></i>
+                <div>
+                    <p class="font-semibold text-gray-800">Solution Prtner</p>
+                    <span class="text-gray-500 text-sm">Join our exclusive Partner Network</span>
+                </div>
+            </a>
+            <a href="partners1.html" class="flex items-center gap-3 p-2 hover:bg-gray-100 rounded">
+                <i class="fas fa-globe text-[#000000] text-xl mt-1"></i>
+                <div>
+                    <p class="font-semibold text-gray-800">Partner Ecosystem</p>
+                    <span class="text-gray-500 text-sm">Explore our Partner Ecosystem and collaborations</span>
+                </div>
+            </a>
+              
+  </div>
+
+        </div>
+
+        <!-- Plans Link -->
+        <a class="text-[#000000] hover:text-[#1e3a8a]" href="page4.html">Plans</a> &nbsp;&nbsp;&nbsp;
+
+        <!-- Dropdown Menu for Company -->
+        <div class="subnav">
+          <button class="subnavbtn text-[#000000] hover:text-[#1e3a8a]" onclick="toggleDropdown()">
+            Company <i class="fas fa-chevron-down ml-1"></i>
+          </button>
+          <div id="solutions-dropdown" class="subnav-content hidden bg-white p-4 rounded-lg shadow-lg w-64">
+            <a href="about.html" class="flex items-center gap-4 p-2 hover:bg-gray-100 rounded">
+              <div class="flex items-center gap-2" style="width:400px">
+                <i class="fas fa-building" alt="Retail Icon" class="w-8 h-6"> </i>
+                <p class="font-semibold text-gray-800">About Us</p>
+                
+              </div>
+            </a>
+            <a href="contactus.html" class="flex items-center gap-4 p-2 hover:bg-gray-100 rounded">
+              <div class="flex items-center gap-2" style="width:400px">
+                <i class="fas fa-envelope" alt="Retail Icon" class="w-8 h-6"> </i>
+                <p class="font-semibold text-gray-800">Contact Us</p>
+                
+              </div>
+            </a>
+          </div>
+        </div>
+      </nav>
+
+
+      <!-- User Info -->
+      <div class="flex items-center space-x-4">
+        <i class="fas fa-user"></i>
+        <span id="username-display" class="text-[#1e3a8a] font-bold"></span>
+        <a class="bg-[#1e3a8a] text-white px-4 py-2 rounded hover:bg-[#3b82f6]" href="login_g.html">Log Out</a>
+      </div>
+    </div>
+  </header>
+<br>
+
+  <!-- Main Content -->
+  <main class="container mx-auto px-4 py-16 flex flex-col md:flex-row">
+    <div class="md:w-1/2">
+      <h1 class="text-4xl font-bold text-[#1e3a8a] mb-6">
+Build Stronger Relationships With Your Customers
+      </h1>
+      <p class="text-lg text-[#3b3b3b] mb-6">
+        Talk to us for a scalable, secure solution that grows with your business.<b>Choose the Product That's Right for Your Business</b>Talk to us for a scalable, secure solution that grows with your business.
+
+
+.
+      </p>
+      <a class="bg-[#1e3a8a] text-white px-6 py-3 rounded inline-flex items-center hover:bg-[#3b82f6]" href="contactus.html">
+        Let's Talk <i class="fas fa-arrow-right ml-2"></i>
+      </a>
+    </div>
+
+
+    <!-- Testimonials -->
+    <div class="md:w-1/2 mt-10 md:mt-0 grid grid-cols-2 gap-4">
+      <div class="image-container flex flex-col items-center">
+        <img alt="Hamza Ali" class="rounded-lg shadow-md" src="a29.png" style="width: 250px; height: 250px;" />
+      </div>
+      <div class="image-container flex flex-col items-center">
+        <img alt="Paul Goossens" class="rounded-lg shadow-md" src="a30.png" style="width: 250px; height: 250px;" />
+      </div>
+      <div class="image-container flex flex-col items-center">
+        <img alt="Rowan Pereira" class="rounded-lg shadow-md" src="a31.png" style="width: 250px; height: 250px;" />
+      </div>
+      <div class="image-container flex flex-col items-center">
+        <img alt="Suresh Kumar" class="rounded-lg shadow-md" src="a32.png" style="width: 250px; height: 250px;" />
+      </div>
+    </div>
+   
+
+  </main>
+
+  <!-- Floating Chatbot Button -->
+  <button class="chatbot-toggle" onclick="toggleChatbot()">
+    <i class="fas fa-comments fa-lg"></i>
+  </button>
+
+  <!-- Chatbot Iframe Popup -->
+  <div class="chatbot-frame-container" id="chatbot-frame">
+    <iframe src="https://my-chatbot1.streamlit.app/?embed=true"></iframe>
+  </div>
+<div class="container1">
+        <!-- Button Group -->
+        <div class="button-group">
+            <button class="button active" onclick="showContent('inform', this)">Thryve Inform</button>
+            <button class="button" onclick="showContent('analytics', this)">Cross-Channel Marketing & Analytics</button>
+            <button class="button" onclick="showContent('personalize', this)">Thryve Personalize</button>
+        </div>
+        <br><br><br><br><br>
+        <div class="content">
+            <!-- Left Side: Dynamic Content -->
+            <div class="info-box" id="info-box">
+                <!-- Content will be updated dynamically -->
+              
+            
+            </div>
+
+               
+
+            <!-- Feature Boxes Right -->
+            <div class="feature-boxes" id="feature-boxes">
+                <!-- Feature content will be updated dynamically -->
+            </div>
+        </div>
+    </div>
+   <br><br><br>
+   <div class="marquee-container">
+                <div class="marquee">
+                  <img src="https://www.moengage.com/wp-content/plugins/logo-library/public/assets/logo-library/samsung/samsung.svg" alt="Samsung">
+                  <img src="https://www.moengage.com/wp-content/plugins/logo-library/public/assets/logo-library/arvind-lifestyle/arvind-lifestyle.svg" alt="Arvind Lifestyle">
+                  <img src="https://www.moengage.com/wp-content/plugins/logo-library/public/assets/logo-library/landmark-group/landmark-group.svg" alt="Landmark Group">
+                  <img src="https://www.moengage.com/wp-content/plugins/logo-library/public/assets/logo-library/natures-basket/natures-basket.svg" alt="Natures' Basket">
+                  <img src="https://www.moengage.com/wp-content/plugins/logo-library/public/assets/logo-library/westside/westside.svg" alt="Westside">
+                  <img src="https://www.moengage.com/wp-content/plugins/logo-library/public/assets/logo-library/bisleri/bisleri.svg" alt="Bisleri">
+                  <img src="https://www.moengage.com/wp-content/plugins/logo-library/public/assets/logo-library/benetton/benetton.svg" alt="Benetton">
+                  <img src="https://www.moengage.com/wp-content/plugins/logo-library/public/assets/logo-library/coca-cola/coca-cola.svg" alt="Coca Cola">
+                  <img src="https://www.moengage.com/wp-content/plugins/logo-library/public/assets/logo-library/mamaearth/mamaearth.svg" alt="Mamaearth">
+                  <img src="https://www.moengage.com/wp-content/plugins/logo-library/public/assets/logo-library/flipkart/flipkart.svg" alt="Flipkart">
+                  <img src="https://www.moengage.com/wp-content/plugins/logo-library/public/assets/logo-library/hul/hul.svg" alt="HUL">
+                  <img src="https://www.moengage.com/wp-content/plugins/logo-library/public/assets/logo-library/lifestyle/lifestyle.svg" alt="Lifestyle">
+                  <img src="https://www.moengage.com/wp-content/plugins/logo-library/public/assets/logo-library/max-fashion/max-fashion.svg" alt="Max Fashion">
+                  <img src="https://www.moengage.com/wp-content/plugins/logo-library/public/assets/logo-library/havells/havells.svg" alt="Havells">
+                  <img src="https://www.moengage.com/wp-content/plugins/logo-library/public/assets/logo-library/marks-and-spencers/marks-and-spencers.svg" alt="Marks & Spencers">
+                  <img src="https://www.moengage.com/wp-content/plugins/logo-library/public/assets/logo-library/bigbasket/bigbasket.svg" alt="BigBasket">
+
+
+                </div>
+              </div>
+
+
+  <script>
+    // Display Username from LocalStorage
+    const username = localStorage.getItem("username");
+    if (username) {
+      const displayName = username.split('@')[0];
+      document.getElementById("username-display").textContent = displayName;
+    }
+
+    // Toggle Dropdown for Product
+    const productToggle = document.getElementById("product-toggle");
+    const productMenu = document.getElementById("product-menu");
+    const dropdown = productToggle.parentElement;
+
+    productToggle.addEventListener("click", () => {
+  productMenu.classList.toggle("hidden");
+  dropdown.classList.toggle("open");
+});
+
+    // Close dropdown when clicking outside
+    document.addEventListener("click", (e) => {
+      if (!dropdown.contains(e.target)) {
+        productMenu.classList.add("hidden");
+        dropdown.classList.remove("open");
+      }
+    });
+        // Data for different sections
+        const contentData = {
+            inform: {
+                title: "Thryve Inform<br><br>",
+                description: "Unified Messaging Infrastructure for Cross-Channel Transactional Alerts.<br><br>",
+                items: [
+                    { img: "https://img.icons8.com/ios/50/money.png", text: "Deliver time-sensitive transactional alerts across channels instantly.<br><br>" },
+                    { img: "https://img.icons8.com/ios/50/sales-performance.png", text: "Save 60% on SMS and email spends, and 95% of developer bandwidth.<br><br>" },
+                    { img: "https://img.icons8.com/ios/50/network.png", text: "Channel fallback mechanism ensures message delivery.<br><br>" },
+                    { img: "https://img.icons8.com/ios/100/source-code.png", text: "Supports 30+ providers with SDKs in all major languages.<br><br>" },
+                     { img: "https://img.icons8.com/ios/50/speedometer.png", text: "Reach more customers on mobile devices with increased push notification delivery rates.<br><br>" }
+                    
+                ],
+                features: [
+                    { img: "https://img.icons8.com/ios/50/clock.png", title: "Alerts Delivered", desc: "On time, every time", bg: "#eaf2ff" },
+                    { img: "https://img.icons8.com/ios/50/money.png", title: "Optimize ROI", desc: "Cut costs, boost returns", bg: "#fff6d8" },
+                     { img: "https://img.icons8.com/ios/50/switch.png", title: "Optimize ROI", desc: "Cut costs, boost returns", bg: "#f2e6ff" },
+                     { img: "https://img.icons8.com/ios/50/speedometer.png", title: "Optimize ROI", desc: "Cut costs, boost returns", bg: "#ffe6e6" },
+                      { img: "https://img.icons8.com/ios/100/decentralized-network.png", title: "Optimize ROI", desc: "Cut costs, boost returns", bg: "#f5e6f2" },
+                      { img: "https://img.icons8.com/ios/100/source-code.png", title: "Optimize ROI", desc: "Cut costs, boost returns", bg: "#f8f1e5" }
+                ]
+            },
+            analytics: {
+                title: "Cross-Channel Marketing & Analytics<br><br>",
+                description: "Optimize customer journeys and engagement across channels.<br><br>",
+                items: [
+                    { img: "https://img.icons8.com/ios/50/like--v1.png", text: "Personalize communication based on customer behavior and interactions.<br><br>" },
+                    { img: "https://img.icons8.com/ios/50/decentralized-network.png", text: "Build omnichannel customer journeys using an easy-to-use visual editor.<br><br>" },
+                     { img: "https://img.icons8.com/ios/50/artificial-intelligence.png", text: " Leverage AI and machine learning to optimize the timing and content of your campaigns.<br>" },
+                    { img: " https://img.icons8.com/ios/50/appointment-reminders.png", text: "Reach more customers on mobile devices with increased push notification delivery rates.<br><br>" },
+                     { img: "https://img.icons8.com/ios/50/conference-call.png", text: "Interact with our team of in-house experts on customer engagement and reachability.<br><br>" }
+                ],
+                features: [
+                    { img: "https://img.icons8.com/ios/50/conference-call.png", desc: "Sync your product and content catalog to deliver hyper-personalized recommendations.", bg: "#e6f7e6" },
+                    { img: "https://img.icons8.com/ios/50/decentralized-network.png", desc: "Automatically direct customers to the best-performing paths in your customer journey.", bg: "#eaf2ff" },
+                     { img: "https://img.icons8.com/ios/50/security-configuration.png", desc: "Improve security by managing access controls across multiple team members.", bg: "#f2e6ff" },
+                     { img: "https://img.icons8.com/ios/50/database.png",desc: "Get enterprise-grade compliance with access to local data servers and IP whitelisting.", bg: "#ffe6e6" },
+                      { img: "https://img.icons8.com/ios/50/handshake.png",desc: "Quarterly business reviews with the MoEngage team to get access to our consultation service.", bg: "#f5e6f2" },
+                      { img: "https://img.icons8.com/ios/100/source-code.png", title: "Optimize ROI", desc: "Cut costs, boost returns", bg: "#f8f1e5" }
+                ]
+            },
+            personalize: {
+                title: "Thryve Personalize<br><br>",
+                description: "Deliver hyper-personalized experiences at scale.<br><br>",
+                items: [
+                    { img: "https://img.icons8.com/ios/50/conference-call.png", text: "Leverage the WYSIWYG editor to create personalized campaigns at scale.<br><br>" },
+                    { img: "https://img.icons8.com/ios/50/web.png", text: "Refine web experiences for customers based on predictions and affinities.<br><br>" },
+                     { img: "https://img.icons8.com/ios/50/appointment-reminders.png", text: "Run A/B tests and optimize with actionable insights.<br><br>" },
+                      { img: "https://img.icons8.com/ios/50/decentralized-network.png", text: "Personalize for anonymous visitors based on device, location, traffic source, and more.<br><br>" }
+                ],
+                features: [
+                    { img: "https://img.icons8.com/ios/50/brain.png", title: "Personalized", desc: "Content for every visitor", bg: "#f2e6ff" },
+                    { img: "https://img.icons8.com/ios/50/web.png", title: "Build Instantly", desc: "With a no-code visual editor", bg: "#fff6d8" },
+                     { img: "https://img.icons8.com/ios/50/switch.png", title: "Boost Conversions", desc: "Optimize results with A/B testingCut costs, boost returns", bg: "#f8f1e5" },
+                     { img: "https://img.icons8.com/ios/50/speedometer.png", title: " Go Live", desc: "Campaigns in minutes", bg: "#ffe6e6" }
+              
+                ]
+            }
+        };
+
+        // Function to update content dynamically
+        function showContent(section, btn) {
+            const infoBox = document.getElementById("info-box");
+            const featureBox = document.getElementById("feature-boxes");
+
+            const data = contentData[section];
+
+             infoBox.innerHTML = `
+                <h2>${data.title}</h2>
+                <p>${data.description}</p>
+                ${data.items.map(item => `
+                    <div class="info-item">
+                        <img src="${item.img}" />
+                        <p>${item.text}</p>
+                    </div>
+                `).join("")}
+                <div class="cta">
+                    <button class="primary-button" onclick="contactUs()">Let's Talk</button>
+                    <a href="#" class="learn-more">Learn More...</a>
+                </div>
+            `;
+          
+            featureBox.innerHTML = data.features.map(feature => `
+                <div class="feature-box" style="background-color: ${feature.bg};">
+                    <img src="${feature.img}" />
+                    <h3>${feature.title}</h3>
+                    <p>${feature.desc}</p>
+                </div>`).join("");
+
+            document.querySelectorAll(".button").forEach(b => b.classList.remove("active"));
+            btn.classList.add("active");
+        }
+           // Function for "Let's Talk" button
+        function contactUs() {
+            //alert("Redirecting to the contact page...");
+            window.location.href = "contactus.html"; // Update if needed
+        }
+
+        function toggleChatbot() {
+        const bot = document.getElementById("chatbot-frame");
+        bot.style.display = bot.style.display === "flex" ? "none" : "flex";
+      }
+        // Initialize with the first section
+        showContent('inform', document.querySelector(".button"));
+  </script>
+</body>
+<footer class="bg-[#1e3a8a] text-white py-6 mt-10">
+  <div class="container mx-auto text-center">
+    <p class="text-sm">&copy; 2025 Thryve. All rights reserved.</p>
+    <div class="mt-2">
+      <a href="#" class="text-gray-300 hover:text-white mx-2">Privacy Policy</a>
+      <a href="#" class="text-gray-300 hover:text-white mx-2">Terms of Service</a>
+      <a href="#" class="text-gray-300 hover:text-white mx-2">Contact Us</a>
+    </div>
+  </div>
+</footer>
+
+</html>
